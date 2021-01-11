@@ -1,0 +1,28 @@
+{
+  "name": "startnewprojectreactredux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node app.js",
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix eats-app",
+    "client:install": "npm install --prefix eats-app",
+    "client:build": "npm run build --prefix eats-app",
+    "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run eats-app\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azavjo40/startNewProjectReactRedux.git"
+  },
+  "author": "Azam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azavjo40/startNewProjectReactRedux/issues"
+  },
+  "homepage": "https://github.com/azavjo40/startNewProjectReactRedux#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}

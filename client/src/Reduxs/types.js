@@ -1,0 +1,1 @@
+export const CREATE_BESKAT = 'BESKAT/CREATE_BESKAT'
