@@ -3,7 +3,7 @@ import {applyMiddleware, compose, createStore} from 'redux'
 import { roodReducer } from './Reduxs/roodReducer';
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
-import Menu from './pages/Menu';
+//import Menu from './pages/Menu';
 import Navbar from './Components/Navbar';
 
 function App() {
@@ -16,10 +16,12 @@ thunk
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ))
 return (
-<Provider store={store}>
-  <Navbar />
-    <Menu />
-</Provider>
+<div className="cont">
+  <Provider store={store}>
+    <Navbar hoome="Home" abaut="Abaout" contact="Contacts" create="Create" 
+    myMenu="MyMenu" login="Login"/>
+  </Provider>
+</div>
 );
 }
 
