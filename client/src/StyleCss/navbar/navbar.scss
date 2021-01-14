@@ -13,6 +13,12 @@ position: fixed;
 z-index: 20;
 border-radius: 50px;
 left: 20px;
+cursor: pointer;
+&:hover{
+background-color:#69f0ae;
+transition: 1s;
+border: 1px solid white;
+}
 }
 .nav_links{
 background-color: $color-1;
@@ -29,6 +35,7 @@ a{
 border-radius: 2px;
 text-decoration: none;
 color: black;
+cursor: pointer;
 &:hover{
 color: #1a237e;
 box-shadow: 2px 2px 2px 2px #29b6f6;
@@ -68,6 +75,7 @@ a{
 text-decoration: none;
 color: black;
 border-radius: 3px;
+cursor: pointer;
 &:hover{
 color: #1a237e;
 transition: 1s;
