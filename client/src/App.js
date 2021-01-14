@@ -7,7 +7,7 @@ import Navbar from './Components/Navbar';
 import useRouters from './routers/Router'
 import {BrowserRouter as Router} from 'react-router-dom'
 function App() {
-const isAuthUser = true
+const isAuthUser = false
 const routers = useRouters(isAuthUser)
 const store = createStore(roodReducer, compose(
 applyMiddleware(
