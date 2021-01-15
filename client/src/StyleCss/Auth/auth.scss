@@ -1,0 +1,21 @@
+$myBlue: #1a73e8;
+$myBlack: #202124;
+.contAuth{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+width: 100%;
+height: 100%;
+button{
+color: $myBlue;
+font-weight: 500px;
+font-size: 15px;
+background-color: none;
+border: none;
+margin-top: 10px;
+&{
+outline: none;
+}
+}
+}

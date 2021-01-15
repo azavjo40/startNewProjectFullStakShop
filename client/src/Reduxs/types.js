@@ -1,1 +1,3 @@
 export const CREATE_BESKAT = 'BESKAT/CREATE_BESKAT'
+export const GO_REGISTER = 'AUTH/GO_REGISTER'
+export const GO_LOGIN = 'AUTH/GO_LOGIN'

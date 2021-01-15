@@ -1,0 +1,66 @@
+$myBlue: #1a73e8;
+$myBlue1: #1a93e8;
+$myBlack: #202124;
+.contReg{
+display: flex;
+width: 100%;
+height: 100%;
+margin-top: 30px;
+align-items: center;
+justify-content: center;
+form{
+height: 70%;
+width: 70%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+border: .05px solid $myBlack;
+border-radius: 10px;
+position: relative;
+input{
+width: 80%;
+margin: 20px;
+height: 30px;
+border-radius: 5px;
+border: .02px solid $myBlack;
+&:focus{
+outline: $myBlue;
+border: .08px solid $myBlue;
+}
+}
+button{
+background-color: $myBlue;
+color: white;
+width: 80px;
+height: 35px;
+border-radius: 5px;
+font-weight: 500px;
+font-size: 15px;
+position: relative;
+left: 30%;
+margin-bottom: 20px;
+&:focus{
+outline: none;
+}
+&:hover{
+background-color: $myBlue1;
+}
+}
+}
+h1{
+color: $myBlack;
+font-weight: 500px;
+font-size: 20px;
+}
+}
+@media (max-width: 600px){
+.contReg{
+height: 100%;
+form{
+width: 100%;
+height: 50%;
+border: none;
+}
+}
+}

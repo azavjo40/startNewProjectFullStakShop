@@ -8,7 +8,7 @@ if(isAuthUser){
 return (
 <Switch>
     <Route path="/" exact>
-        <Menu/>
+        <Menu />
     </Route>
     <Redirect to="/" />
 </Switch>
