@@ -8,3 +8,8 @@ width: 100%;
 padding: 0px;
 margin: 0px;
 }
+.alert{
+position: fixed;
+top: 40px;
+right: 40px;
+}
