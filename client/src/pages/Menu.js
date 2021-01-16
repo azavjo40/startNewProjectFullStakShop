@@ -1,27 +1,9 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {createBeskat} from '../Reduxs/acsions'
-function Menu(props) {
-const app = ()=>{
-const newPost = {title:'hello', id:Date.now().toString()}
-props.createBeskat(newPost)
-}
-props.beskat.filter(e=>{
-return console.log(e)
-})
+function Menu() {
 return (
 <div>
-    {props.beskat.map(e=>{
-    return <h1 key={e.id}>{e.title} - {e.id}</h1>
-    })}
-    <button onClick={app}>add</button>
+<h1>hello home</h1>
 </div>
 )
 }
-const mapDispatreturn = {
-createBeskat
-}
-const mapStateToProps = state => ({
-beskat: state.beskat.prod
-})
-export default connect(mapStateToProps, mapDispatreturn)(Menu)
+export default Menu
