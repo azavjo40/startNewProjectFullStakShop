@@ -81,10 +81,10 @@ export function authRegister(raw) {
         localStorage.setItem(
           LOCAL_STORAGE.STORAGE_NAME,
           JSON.stringify({ token: response.token, userId: response.userId })
-        );
-        dispach(authUser(true));
+        )
+        dispach(authUser(true))
       }
-      dispach(hideLoader());
+      dispach(hideLoader())
     } catch (error) {
       dispach(showAlert("Error something went wrong to Rgister"));
     }
@@ -94,7 +94,7 @@ export function authRegister(raw) {
 export function authLogin(raw) {
   return async (dispach) => {
     try {
-      const myHeaders = new Headers();
+      const myHeaders = new Headers()
       myHeaders.append("Content-Type", "application/json");
       const requestOptions = {
         method: "POST",
@@ -104,15 +104,24 @@ export function authLogin(raw) {
       dispach(showLoader());
       const date = await fetch("/api/auth/login", requestOptions);
       const json = await date.json();
-      localStorage.setItem(
-        LOCAL_STORAGE.STORAGE_NAME,
-        JSON.stringify({ token: json.token, userId: json.userId })
-      );
-      dispach(authUser(true));
-      dispach(showAlert(json.message));
+      dispach(showAlert(json.message))
+      if (json.token) {
+        localStorage.setItem(
+          LOCAL_STORAGE.STORAGE_NAME,
+          JSON.stringify({ token: json.token, userId: json.userId })
+        );
+        dispach(authUser(true))
+      }
       dispach(hideLoader());
     } catch (e) {
-      dispach(showAlert("Error something went wrong to Login"));
+      dispach(showAlert("Error something went wrong to Login"))
     }
   };
+}
+
+export const logout = () => {
+  return (dispach) => {
+    localStorage.removeItem(LOCAL_STORAGE.STORAGE_NAME)
+    dispach(authUser(false))
+  }
 }

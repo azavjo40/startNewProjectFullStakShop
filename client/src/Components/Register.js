@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { authRegister } from "../Reduxs/authAcsions";
+import { authRegister } from "../reduxs/authAcsions";
 import "../StyleCss/Auth/register.css";
 import Alert from "./Alert";
 function Register() {
@@ -22,7 +22,7 @@ function Register() {
   const register = (e) => {
     e.preventDefault();
     dispach(authRegister(form));
-    // setForm({ name: "", phone: "", email: "", password: "" });
+    setForm({ name: "", phone: "", email: "", password: "" });
   };
 
   return (
