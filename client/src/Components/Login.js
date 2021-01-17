@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authLogin } from "../Reduxs/authAcsions";
-import { useHistory } from "react-router-dom";
 import "../StyleCss/Auth/register.css";
 import Alert from "./Alert";
 function Login() {
@@ -12,13 +11,11 @@ function Login() {
   const isloading = useSelector((state) => state.auth.isloading);
   const alert = useSelector((state) => state.auth.alert);
   const dispach = useDispatch();
-  const history = useHistory();
 
   const Login = (e) => {
     e.preventDefault();
     dispach(authLogin(form));
     setForm({ email: "", password: "" });
-    //history.push("/");
   };
 
   return (
