@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import "../StyleCss/navbar/onavbar.css";
 import icon from "../images/openMenu.png";
 import { useDispatch } from "react-redux";
-import { logout } from "../reduxs/authAcsions";
+import { logout } from "../Reduxs/authAcsions";
 
 const Navbar = (props) => {
   const [isLoadin, setIsLoading] = useState(false);

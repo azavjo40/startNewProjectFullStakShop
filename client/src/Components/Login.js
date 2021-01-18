@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { authLogin } from "../reduxs/authAcsions";
+import { authLogin } from "../Reduxs/authAcsions";
 import "../StyleCss/Auth/register.css";
 import Alert from "./Alert";
 function Login() {

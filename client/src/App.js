@@ -4,7 +4,7 @@ import useRouters from "./routers/Router";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
-import { autoLogin } from "./reduxs/authAcsions";
+import { autoLogin } from "./Reduxs/authAcsions";
 
 function App() {
   const isAuthUser = useSelector((state) => state.auth.isAuthUser);

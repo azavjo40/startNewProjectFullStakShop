@@ -20,10 +20,9 @@ router.post(
       if (!errors.isEmpty()) {
         return res.status(400).json({
           errors: errors.array(),
-          message: "Incorrect registration data",
+          message: "Incorrect register  data",
         });
       }
-      console.log(req.body);
       const { name, phone, email, password } = req.body;
       const candidate = await User.findOne({ email });
       if (candidate) {
@@ -45,7 +44,7 @@ router.post(
     } catch (e) {
       res
         .status(500)
-        .json({ message: "Something went wrong, please try again" });
+        .json({ message: "Something went wrong, please try again" })
     }
   }
 );
@@ -82,7 +81,7 @@ router.post(
     } catch (e) {
       res
         .status(500)
-        .json({ message: "Something went wrong, please try again" });
+        .json({ message: "Something went wrong, please try again" })
     }
   }
 );
