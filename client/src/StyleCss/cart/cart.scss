@@ -1,0 +1,23 @@
+//sass --watch navbar.scss onavbar.css
+.contCart{
+display:  flex;
+flex-direction: column;
+width: 250px;
+background-color: burlywood;
+height: 100px;
+justify-content: center;
+align-items: center;
+position: relative;
+z-index: 2;
+.img{
+    width: 250px;
+    position: relative;
+    z-index: 1;
+}
+h3{
+    font-size: 15px;
+}
+p{
+    font-size: 10px;
+}
+}

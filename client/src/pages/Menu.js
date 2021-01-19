@@ -1,9 +1,10 @@
 import React from 'react'
+import Cart from '../Components/Cart'
 function Menu() {
-return (
-<div>
-<h1>hello home</h1>
-</div>
-)
+    return (
+        <div >
+            <Cart />
+        </div>
+    )
 }
 export default Menu

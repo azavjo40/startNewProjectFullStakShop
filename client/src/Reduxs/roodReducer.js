@@ -1,8 +1,10 @@
-import {combineReducers} from 'redux'
-import { beskatReducer } from './authReducer'
+import { combineReducers } from 'redux'
+import { authReducer } from './authReducer'
+import { menuReducer } from './menuReducer'
 
 
 export const roodReducer = combineReducers({
     // тут будить хранилешь 
-    auth: beskatReducer
+    auth: authReducer
+    , menu: menuReducer
 })

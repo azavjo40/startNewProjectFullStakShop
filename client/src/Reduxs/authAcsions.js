@@ -1,49 +1,56 @@
 //@ts-check
-
-import { LOCAL_STORAGE } from "../constant/localstorage";
+import { LOCAL_STORAGE } from "../constant/localstorage"
 import {
   HIDE_ALERT,
   IS_LOADING_FALSE,
   IS_LOADING_TRUE,
   IS_AUTH_USER,
   SHOW_ALERT,
-} from "./types";
+  AUTH_TOKEN,
+} from "./types"
 
-export function showLoader() {
+export const showLoader = () => {
   return {
-    type: IS_LOADING_TRUE,
+    type: IS_LOADING_TRUE
   };
 }
 
-export function hideLoader() {
+export const hideLoader = () => {
   return {
-    type: IS_LOADING_FALSE,
-  };
+    type: IS_LOADING_FALSE
+  }
 }
 
-export function hideAlert() {
+export const hideAlert = () => {
   return {
-    type: HIDE_ALERT,
-  };
+    type: HIDE_ALERT
+  }
 }
 
-export function authUser(isAuthUser) {
+export const authUser = (isAuthUser) => {
   return {
     type: IS_AUTH_USER,
-    payload: isAuthUser,
-  };
+    payload: isAuthUser
+  }
+}
+
+export const authToken = (token) => {
+  return {
+    type: AUTH_TOKEN,
+    payload: token
+  }
 }
 
 export function showAlert(text) {
   return (dispach) => {
     dispach({
       type: SHOW_ALERT,
-      payload: text,
+      payload: text
     });
     setTimeout(() => {
-      dispach(hideAlert());
-    }, 3000);
-  };
+      dispach(hideAlert())
+    }, 3000)
+  }
 }
 
 export function autoLogin() {
@@ -51,12 +58,13 @@ export function autoLogin() {
     try {
       const storage = JSON.parse(
         localStorage.getItem(LOCAL_STORAGE.STORAGE_NAME)
-      );
-      if (storage) {
-        dispach(authUser(true));
+      )
+      if (storage.token) {
+        dispach(authUser(true))
+        dispach(authToken(storage.token))
       }
     } catch (e) {
-      dispach(showAlert("Error something went wrong to Login"));
+      dispach(showAlert("Error something went wrong to Login"))
     }
   };
 }
@@ -64,18 +72,15 @@ export function autoLogin() {
 export function authRegister(raw) {
   return async (dispach) => {
     try {
-      const myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
-
       const requestOptions = {
         method: "POST",
-        headers: myHeaders,
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(raw),
       };
       dispach(showLoader());
-      const date = await fetch("/api/auth/register", requestOptions);
-      const response = await date.json();
-      dispach(showAlert(response.message));
+      const date = await fetch("/api/auth/register", requestOptions)
+      const response = await date.json()
+      dispach(showAlert(response.message))
 
       if (response.token) {
         localStorage.setItem(
@@ -86,7 +91,7 @@ export function authRegister(raw) {
       }
       dispach(hideLoader())
     } catch (error) {
-      dispach(showAlert("Error something went wrong to Rgister"));
+      dispach(showAlert("Error something went wrong to Rgister"))
     }
   };
 }
@@ -94,16 +99,14 @@ export function authRegister(raw) {
 export function authLogin(raw) {
   return async (dispach) => {
     try {
-      const myHeaders = new Headers()
-      myHeaders.append("Content-Type", "application/json");
       const requestOptions = {
         method: "POST",
-        headers: myHeaders,
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(raw),
       };
-      dispach(showLoader());
-      const date = await fetch("/api/auth/login", requestOptions);
-      const json = await date.json();
+      dispach(showLoader())
+      const date = await fetch("/api/auth/login", requestOptions)
+      const json = await date.json()
       dispach(showAlert(json.message))
       if (json.token) {
         localStorage.setItem(
@@ -112,11 +115,11 @@ export function authLogin(raw) {
         );
         dispach(authUser(true))
       }
-      dispach(hideLoader());
+      dispach(hideLoader())
     } catch (e) {
       dispach(showAlert("Error something went wrong to Login"))
     }
-  };
+  }
 }
 
 export const logout = () => {

@@ -1,0 +1,24 @@
+.contCart {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  background-color: burlywood;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.contCart .img {
+  width: 250px;
+  position: relative;
+  z-index: 1;
+}
+.contCart h3 {
+  font-size: 15px;
+}
+.contCart p {
+  font-size: 10px;
+}
+
+/*# sourceMappingURL=cart.css.map */

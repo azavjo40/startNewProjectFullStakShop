@@ -2,8 +2,7 @@ const { Router } = require("express");
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
-const jwt = require("jsonwebtoken");
-const config = require("config");
+const token = require('../midlleware/token')
 const router = Router();
 
 router.post(
@@ -31,14 +30,10 @@ router.post(
       const hashedPassword = await bcrypt.hash(password, 12);
       const user = new User({ name, phone, email, password: hashedPassword });
       await user.save();
-      const token = jwt.sign(
-        { userId: user.id },
-        config.get("jwtSecret")
-        //,{ expiresIn: '1h' }
-      );
+      const tokenUser = token(user.id)
       res.status(201).json({
         message: "User created",
-        token: `Bearer ${token}`,
+        token: `Bearer ${tokenUser()}`,
         userId: user.id,
       });
     } catch (e) {
@@ -72,12 +67,8 @@ router.post(
           .status(400)
           .json({ message: "Invalid password, please try again" });
       }
-      const token = jwt.sign(
-        { userId: user.id },
-        config.get("jwtSecret")
-        //,{ expiresIn: '1h' }
-      );
-      res.status(200).json({ token: `Bearer ${token}`, userId: user.id });
+      const tokenUser = token(user.id)
+      res.status(200).json({ token: `Bearer ${tokenUser()}`, userId: user.id });
     } catch (e) {
       res
         .status(500)

@@ -13,14 +13,15 @@ function App() {
 
   useEffect(() => {
     dispatch(autoLogin());
-  }, [dispatch]);
+
+  }, [dispatch])
 
   return (
     <div className="cont">
       <Router>
         {isAuthUser ? (
           <Navbar home="Home" contact="Contacts" create="Create" myMenu="MyMenu"
-            logout="Logout" lo="/"
+            logout="Logout" lo="/" cr="/create"
           />
         ) : (
             <Navbar home="Home" contact="Contacts" login="Login" l="/auth" />

@@ -5,15 +5,17 @@ import {
   IS_LOADING_FALSE,
   IS_LOADING_TRUE,
   IS_AUTH_USER,
+  AUTH_TOKEN,
 } from "./types";
 
 const initialState = {
   isAuthUser: false,
   isloading: false,
   alert: null,
+  token: null
 };
 
-export const beskatReducer = (state = initialState, actoin) => {
+export const authReducer = (state = initialState, actoin) => {
   switch (actoin.type) {
     case IS_LOADING_FALSE:
       return { ...state, isloading: false };
@@ -29,8 +31,8 @@ export const beskatReducer = (state = initialState, actoin) => {
 
     case IS_AUTH_USER:
       return { ...state, isAuthUser: actoin.payload };
-
-    default:
-      return state;
+    case AUTH_TOKEN:
+      return { ...state, token: actoin.payload }
+    default: return state;
   }
 };
