@@ -13,7 +13,7 @@ const Navbar = (props) => {
       <img
         src={icon}
         alt={icon}
-        className={isLoadin ? "icon" : ""}
+        className="imgIcon"
         onClick={() => setIsLoading(!isLoadin)}
       />
       <ul

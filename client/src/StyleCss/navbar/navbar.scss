@@ -6,7 +6,7 @@ padding: 0px;
 margin: 0px;
 position: relative;
 }
-img{
+.imgIcon{
 width: 30px;
 //display: none;
 position: fixed;
@@ -17,7 +17,7 @@ cursor: pointer;
 &:hover{
 background-color:#69f0ae;
 transition: 1s;
-border: 1px solid white;
+border: 1px solid;
 }
 }
 .nav_links{
@@ -32,9 +32,9 @@ justify-content: space-around;
 align-items: center;
 transition: 2s;
 z-index: 19;
-position: relative;
+position: absolute;
 a{
-border-radius: 2px;
+border-radius: 5px;
 text-decoration: none;
 color: black;
 cursor: pointer;
@@ -42,7 +42,7 @@ cursor: pointer;
 color: #1a237e;
 box-shadow: 2px 2px 2px 2px #29b6f6;
 transition: 1s;
-border: solid 1px white;
+border: solid 1px;
 }
 }
 }
@@ -76,12 +76,12 @@ z-index: 19;
 a{
 text-decoration: none;
 color: black;
-border-radius: 3px;
+border-radius: 5px;
 cursor: pointer;
 &:hover{
 color: #1a237e;
 transition: 1s;
-border: solid 1px white;
+border: solid 1px;
 }
 }
 }
