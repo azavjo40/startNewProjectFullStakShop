@@ -1,3 +1,4 @@
+$color-1: #00e676;
 .modalCont{
 display: flex;
 justify-content: center;
@@ -25,6 +26,7 @@ align-items: center;
 .label{
 width: 80%;
 color: black;
+cursor: pointer;
 }
 }
 .closeModal{
@@ -42,6 +44,20 @@ outline: none;
 &:hover{
 border: solid 0.5px ;
 transition: 1s;
+}
+}
+.modalBtn{
+background-color: $color-1;
+border-radius: 5px;
+border: none;
+cursor: pointer;
+margin-right: 2%;
+&:hover{
+border: solid 0.5px;
+transition: 1s;
+}
+&:focus{
+outline: none;
 }
 }
 }
