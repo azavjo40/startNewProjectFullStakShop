@@ -1,0 +1,43 @@
+.createCont {
+  width: 100%;
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.createCont .creteForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: aquamarine;
+  border-radius: 10px;
+  margin-top: 8%;
+}
+.createCont .creteForm input {
+  margin-top: 20px;
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+}
+.createCont .creteForm input:focus {
+  outline: none;
+}
+.createCont .creteForm input:hover {
+  border: solid 0.5px yellow;
+}
+.createCont .createBtn {
+  background-color: #00e676;
+  border: none;
+  color: white;
+  border-radius: 3px;
+}
+.createCont .createBtn:hover {
+  border: solid 0.5px yellow;
+}
+.createCont .createBtn:focus {
+  outline: none;
+}
+
+/*# sourceMappingURL=create.css.map */

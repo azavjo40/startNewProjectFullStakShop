@@ -1,8 +1,10 @@
 import React from 'react'
-
+import CreateCart from '../Components/CreateCart'
 const Create = () => {
     return (
-        <h1>hello</h1>
+        <>
+            <CreateCart />
+        </>
     )
 }
 
