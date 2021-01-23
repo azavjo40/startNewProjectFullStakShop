@@ -16,7 +16,11 @@ const fileFilter = (req, file, cb) => {
         cb(null, false)
     }
 }
-const limits = { fileSize: 1024 * 1024 * 5 }
+const limits = {
+    fileSize: 1024 * 1024 * 5
+}
 module.exports = multer({
-    storage, fileFilter, limits
+    storage: storage,
+    fileFilter: fileFilter,
+    limits: limits
 })

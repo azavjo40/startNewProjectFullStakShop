@@ -15,8 +15,8 @@ function Register() {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
 
-  const alert = useSelector((state) => state.auth.alert);
-  const isloading = useSelector((state) => state.auth.isloading);
+  const alert = useSelector((state) => state.general.alert);
+  const isloading = useSelector((state) => state.general.isloading);
   const dispach = useDispatch();
 
   const register = (e) => {

@@ -13,7 +13,7 @@ router.post('/create',
                 res.status(400).json({ message: 'Not files !!! select file !!!' })
             } else {
                 const create = new MenuCraete({
-                    name, cost, p, imageSrc: req.file && req.file.path,
+                    name, cost, p, imageSrc: req.file ? req.file.path : ''
                     //user: req.user.id
                 })
                 await create.save()
@@ -39,9 +39,10 @@ router.get('/allmenu',
 router.post('/delete',
     async (req, res) => {
         try {
+            console.log(req.body)
             const { imageSrc, _id } = req.body
             if (!imageSrc || !_id) {
-                res.status(300).json({ message: "Что то пошель не так Потвердите выбор" })
+                res.status(300).json({ message: "Something went wrong, please try again" })
             }
             await MenuCraete.remove({
                 _id: _id

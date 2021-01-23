@@ -1,31 +1,10 @@
 //@ts-check
 import { LOCAL_STORAGE } from "../constant/localstorage"
+import { hideLoader, showAlert, showLoader } from "./generalAcsion"
 import {
-  HIDE_ALERT,
-  IS_LOADING_FALSE,
-  IS_LOADING_TRUE,
   IS_AUTH_USER,
-  SHOW_ALERT,
   AUTH_TOKEN,
 } from "./types"
-
-export const showLoader = () => {
-  return {
-    type: IS_LOADING_TRUE
-  };
-}
-
-export const hideLoader = () => {
-  return {
-    type: IS_LOADING_FALSE
-  }
-}
-
-export const hideAlert = () => {
-  return {
-    type: HIDE_ALERT
-  }
-}
 
 export const authUser = (isAuthUser) => {
   return {
@@ -38,18 +17,6 @@ export const authToken = (token) => {
   return {
     type: AUTH_TOKEN,
     payload: token
-  }
-}
-
-export function showAlert(text) {
-  return (dispach) => {
-    dispach({
-      type: SHOW_ALERT,
-      payload: text
-    });
-    setTimeout(() => {
-      dispach(hideAlert())
-    }, 3000)
   }
 }
 
