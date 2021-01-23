@@ -9,11 +9,11 @@ const MenuCart = (props) => {
 
     const dispatch = useDispatch()
     const removeHandler = () => {
-        setForm(props)
-        setTimeout(() => {
-            dispatch(deleteMenu(form))
-        }, 1000)
+        dispatch(deleteMenu(form))
         console.log(form)
+    }
+    const changeHndler = (props) => {
+        setForm(props)
     }
     return (
         <>
@@ -23,7 +23,8 @@ const MenuCart = (props) => {
                 <div className="cartRidius"><p>20-30-M</p></div>
                 <h3>{props.name}</h3>
                 <p> {props.p}</p>
-                {props.authUser ? <label style={{ fontSize: '10px' }}><input type="checkbox" /> Confirm</label> : <p>{props.cost}-PLN</p>}
+                {props.authUser ? <label style={{ fontSize: '10px' }}>
+                    <input type="checkbox" onChange={(e) => changeHndler(props)} /> Confirm</label> : <p>{props.cost}-PLN</p>}
                 {props.authUser ? <button onClick={removeHandler}>Delete</button> : <button onClick={() => setShow(!show)}> +</button>}
             </div>
         </>
