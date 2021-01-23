@@ -1,5 +1,5 @@
 import { hideLoader, showAlert, showLoader } from "./generalAcsion"
-import { MENU_GET_ALL, SHOW_ALERT } from "./types";
+import { MENU_GET_ALL} from "./types";
 
 
 export function deleteMenu(form) {
@@ -17,7 +17,7 @@ export function deleteMenu(form) {
             console.log(data)
             dispach(showAlert(data.message))
             dispach(hideLoader())
-        } catch (e) {dispach(SHOW_ALERT('Something went wrong try again'))}
+        } catch (e) {dispach(showAlert('Something went wrong try again'))}
     }
 }
 
@@ -32,7 +32,7 @@ export function allmenu() {
             const data = await res.json()
             dispach({ type: MENU_GET_ALL, payload: data })
             dispach(hideLoader())
-        } catch (e) {dispach(SHOW_ALERT('Something went wrong try again')) }
+        } catch (e) {dispach(showAlert('Something went wrong try again')) }
     }
 }
 
@@ -56,6 +56,6 @@ export function createAcsion(form, file) {
             const data = await res.json()
             dispach(showAlert(data.message))
             dispach(hideLoader())
-        } catch (e) { dispach(SHOW_ALERT('Something went wrong try again')) }
+        } catch (e) { dispach(showAlert('Something went wrong try again')) }
     }
 }
