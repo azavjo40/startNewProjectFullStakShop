@@ -12,8 +12,8 @@ export function deleteMenu(form) {
                 body: JSON.stringify(form)
             }
             dispach(showLoader())
-            const json = await fetch('/api/delete', requestOptions)
-            const data = await json.json()
+            const res = await fetch('/api/delete', requestOptions)
+            const data = await res.json()
             console.log(data)
             dispach(showAlert(data.message))
             dispach(hideLoader())
@@ -48,8 +48,7 @@ export function createAcsion(form, file) {
                 method: 'POST',
                 headers: {
                 },
-                body: formdata,
-                redirect: 'follow'
+                body: formdata
             }
             dispach(showLoader())
             const res = await fetch("/api/create", requestOptions)
