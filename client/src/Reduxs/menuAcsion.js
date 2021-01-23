@@ -15,9 +15,9 @@ export function deleteMenu(form) {
             const json = await fetch('/api/delete', requestOptions)
             const data = await json.json()
             console.log(data)
-            dispach(SHOW_ALERT(data.message))
+            dispach(showAlert(data.message))
             dispach(hideLoader())
-        } catch (e) { throw e }
+        } catch (e) {dispach(SHOW_ALERT('Something went wrong try again'))}
     }
 }
 
@@ -32,7 +32,7 @@ export function allmenu() {
             const data = await res.json()
             dispach({ type: MENU_GET_ALL, payload: data })
             dispach(hideLoader())
-        } catch (e) { throw e }
+        } catch (e) {dispach(SHOW_ALERT('Something went wrong try again')) }
     }
 }
 
