@@ -1,23 +1,26 @@
+//@ts-check
 import { hideLoader, showAlert, showLoader } from "./generalAcsion"
-import { MENU_GET_ALL} from "./types";
+import { MENU_GET_ALL } from "./types";
 
 
 export function deleteMenu(form) {
     return async dispach => {
+        const formPars = { imageSrc: form.imageSrc, _id: form._id }
         try {
-            console.log('form', form)
             const requestOptions = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(form)
+                body: JSON.stringify(formPars)
             }
-            dispach(showLoader())
-            const res = await fetch('/api/delete', requestOptions)
-            const data = await res.json()
-            console.log(data)
-            dispach(showAlert(data.message))
-            dispach(hideLoader())
-        } catch (e) {dispach(showAlert('Something went wrong try again'))}
+            if (form) {
+                dispach(showLoader())
+                const res = await fetch('/api/delete', requestOptions)
+                const data = await res.json()
+                dispach(showAlert(data.message))
+                dispach(hideLoader())
+            }
+            dispach(showAlert('Confirm Deletion !!!'))
+        } catch (e) { dispach(showAlert('Something went wrong try again')) }
     }
 }
 
@@ -32,7 +35,7 @@ export function allmenu() {
             const data = await res.json()
             dispach({ type: MENU_GET_ALL, payload: data })
             dispach(hideLoader())
-        } catch (e) {dispach(showAlert('Something went wrong try again')) }
+        } catch (e) { dispach(showAlert('Something went wrong try again')) }
     }
 }
 

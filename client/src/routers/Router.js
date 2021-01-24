@@ -3,7 +3,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Menu from "../pages/menu";
 import Auth from "../pages/auth";
 import Create from "../pages/create";
-
+import Basket from '../pages/basket'
 function useRouters(isAuthUser) {
   if (isAuthUser) {
     return (
@@ -25,6 +25,9 @@ function useRouters(isAuthUser) {
       </Route>
       <Route path="/auth" exact>
         <Auth />
+      </Route>
+      <Route path="/basket" exact>
+        <Basket />
       </Route>
       <Redirect to="/" />
     </Switch>

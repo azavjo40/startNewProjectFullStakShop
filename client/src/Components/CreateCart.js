@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import '../StyleCss/create/create.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { createAcsion } from '../Reduxs/menuAcsion'
+import { useHistory } from 'react-router-dom'
 import Alert from './Alert'
 const CreateCart = () => {
     const alert = useSelector((state) => state.general.alert)
     const isLoading = useSelector((state) => state.general.isloading)
     const dispatch = useDispatch()
     const [file, setFile] = useState()
+    const history = useHistory()
     const [form, setForm] = useState({ name: "", p: "", cost: "" })
     const chanheHandler = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })
@@ -21,6 +23,10 @@ const CreateCart = () => {
         dispatch(createAcsion(form, file))
         setForm({ name: "", p: "", cost: "" })
         setFile(null)
+        setTimeout(() => {
+            history.push('/')
+        }, 1000)
+
     }
     return (
         <div className="createCont">

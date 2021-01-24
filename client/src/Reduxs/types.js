@@ -5,3 +5,4 @@ export const HIDE_ALERT = "AUTH/HIDE_ALERT";
 export const IS_AUTH_USER = "AUTH/IS_AUTH_USER";
 export const AUTH_TOKEN = "AUTH/AUTH_TOKEN"
 export const MENU_GET_ALL = "MENU/MENU_GET_ALL"
+export const ADD_BASKET = "BASKET/ADD_BASKET"

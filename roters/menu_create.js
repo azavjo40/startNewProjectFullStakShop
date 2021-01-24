@@ -1,3 +1,4 @@
+//@ts-check
 const { Router } = require('express')
 const MenuCraete = require('../models/menuCraete')
 const upload = require('../midlleware/upload')
@@ -14,7 +15,7 @@ router.post('/create',
             } else {
                 const create = new MenuCraete({
                     name, cost, p, imageSrc: req.file ? req.file.path : ''
-                    //user: req.user.id
+
                 })
                 await create.save()
                 res.status(201).json({ message: 'Menu create' })
@@ -39,7 +40,6 @@ router.get('/allmenu',
 router.post('/delete',
     async (req, res) => {
         try {
-            console.log(req.body)
             const { imageSrc, _id } = req.body
             if (!imageSrc || !_id) {
                 res.status(300).json({ message: "Something went wrong, please try again" })

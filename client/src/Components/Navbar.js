@@ -41,9 +41,9 @@ const Navbar = (props) => {
         ) : (
             ""
           )}
-        {props.myMenu ? (
+        {props.basket ? (
           <li>
-            <NavLink to={props.my ? props.my : ""}>{props.myMenu}</NavLink>
+            <NavLink to={props.b ? props.b : ""}>{props.basket}</NavLink>
           </li>
         ) : (
             ""

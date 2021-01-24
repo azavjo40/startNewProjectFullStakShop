@@ -12,4 +12,5 @@ margin: 0px;
 position: fixed;
 top: 40px;
 right: 40px;
+z-index: 100;
 }

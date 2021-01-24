@@ -1,31 +1,53 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { deleteMenu } from '../Reduxs/menuAcsion'
+import { useHistory } from 'react-router-dom'
 import '../StyleCss/cart/cart.css'
 import ModelChoice from './ModelChoice'
 const MenuCart = (props) => {
     const [show, setShow] = useState(false)
     const [form, setForm] = useState({ imageSrc: "", _id: "" })
+    const [check, setCheck] = useState(false)
+    const [add, setAdd] = useState([])
+    const history = useHistory()
 
     const dispatch = useDispatch()
     const removeHandler = () => {
         dispatch(deleteMenu(form))
-        console.log(form)
+        setTimeout(() => {
+            history.push('/create')
+        }, 1000)
     }
-    const changeHndler = (props) => {
-        setForm(props)
+
+    const changeHndler = (e) => {
+        const checked = e.target.checked
+        if (checked) {
+            setCheck(checked)
+            setForm(props)
+        } else {
+            setForm(null)
+            setForm(!props)
+        }
+    }
+
+    const addHandler = () => {
+        setAdd({ name: props.name, cost: props.cost, p: props.p, imageSrc: props.imageSrc })
     }
     return (
         <>
-            {show && <ModelChoice setShow={setShow} show={show} />}
+            {show && <ModelChoice setShow={setShow} show={show} add={add} />}
             <div className="contCart">
                 <img src={props.imageSrc} className="imgCart" alt={props.name} />
                 <div className="cartRidius"><p>20-30-M</p></div>
                 <h3>{props.name}</h3>
                 <p> {props.p}</p>
                 {props.authUser ? <label style={{ fontSize: '10px' }}>
-                    <input type="checkbox" onChange={(e) => changeHndler(props)} /> Confirm</label> : <p>{props.cost}-PLN</p>}
-                {props.authUser ? <button onClick={removeHandler}>Delete</button> : <button onClick={() => setShow(!show)}> +</button>}
+                    <input type="checkbox" onChange={(e) => changeHndler(e)} /> Confirm</label> : <p>{props.cost}-PLN</p>}
+                {props.authUser ? <button disabled={!check} onClick={removeHandler}>Delete</button> :
+                    <button onClick={() => {
+                        setShow(!show)
+                        addHandler()
+                    }}> +</button>}
             </div>
         </>
     )

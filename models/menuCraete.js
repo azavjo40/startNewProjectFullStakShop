@@ -5,6 +5,7 @@ const menuCreate = new Schema({
     cost: { type: Number, required: true },
     p: { type: String, required: true },
     imageSrc: { type: String, required: true },
-    date: { type: Date, default: Date.now }
+    date: { type: Date, default: Date.now },
+    userId: { type: String }
 })
 module.exports = model('menuCrete', menuCreate)
