@@ -10,7 +10,6 @@ function App() {
   const isAuthUser = useSelector((state) => state.auth.isAuthUser);
   const routers = useRouters(isAuthUser);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(autoLogin());
 

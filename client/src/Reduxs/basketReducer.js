@@ -2,7 +2,7 @@ import { ADD_BASKET } from "./types"
 
 //@ts-check
 const initialState = {
-    form: null
+    form: []
 }
 
 

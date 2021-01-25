@@ -8,7 +8,6 @@ const MenuCart = (props) => {
     const [show, setShow] = useState(false)
     const [form, setForm] = useState({ imageSrc: "", _id: "" })
     const [check, setCheck] = useState(false)
-    const [add, setAdd] = useState([])
     const history = useHistory()
 
     const dispatch = useDispatch()
@@ -26,16 +25,13 @@ const MenuCart = (props) => {
             setForm(props)
         } else {
             setForm(null)
-            setForm(!props)
+            setCheck(false)
         }
     }
 
-    const addHandler = () => {
-        setAdd({ name: props.name, cost: props.cost, p: props.p, imageSrc: props.imageSrc })
-    }
     return (
         <>
-            {show && <ModelChoice setShow={setShow} show={show} add={add} />}
+            {show && <ModelChoice setShow={setShow} show={show} props={props} />}
             <div className="contCart">
                 <img src={props.imageSrc} className="imgCart" alt={props.name} />
                 <div className="cartRidius"><p>20-30-M</p></div>
@@ -44,9 +40,8 @@ const MenuCart = (props) => {
                 {props.authUser ? <label style={{ fontSize: '10px' }}>
                     <input type="checkbox" onChange={(e) => changeHndler(e)} /> Confirm</label> : <p>{props.cost}-PLN</p>}
                 {props.authUser ? <button disabled={!check} onClick={removeHandler}>Delete</button> :
-                    <button onClick={() => {
+                    <button onClick={(e) => {
                         setShow(!show)
-                        addHandler()
                     }}> +</button>}
             </div>
         </>
