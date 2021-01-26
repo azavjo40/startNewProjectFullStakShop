@@ -18,8 +18,8 @@ export function deleteMenu(form) {
                 const data = await res.json()
                 dispach(showAlert(data.message))
                 dispach(hideLoader())
+                dispach(showAlert('Menu Deleted'))
             }
-            dispach(showAlert('Confirm Deletion !!!'))
         } catch (e) { dispach(showAlert('Something went wrong try again')) }
     }
 }

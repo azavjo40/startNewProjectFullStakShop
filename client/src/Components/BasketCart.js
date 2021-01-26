@@ -1,13 +1,9 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-// import { deleteMenu } from '../Reduxs/menuAcsion'
-// import { useHistory } from 'react-router-dom'
 import '../StyleCss/cart/cart.css'
 const BasketCart = (props) => {
-    const menu = useSelector(state => state.basket.form)
-    const removeBasket = (pro) => {
-        menu.filter(r => r !== pro)
-    }
+    // const removeBasket = (pro) => {
+    //     menu.filter(r => r !== pro)
+    // }
     return (
         <>
             { props && <div className="contCart" key={props.i}>
@@ -16,7 +12,7 @@ const BasketCart = (props) => {
                 <h3>{props.name}</h3>
                 <p>SOS: {props.sos}</p>
                 <p>COST: {props.cost}-PLN
-                <button onClick={(pro) => removeBasket(pro)} >Delete</button></p>
+                <button style={{ paddingBottom: "0px" }} >Delete</button></p>
             </div>}
         </>
     )

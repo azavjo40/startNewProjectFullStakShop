@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import BasketCart from '../Components/BasketCart'
 function Basket() {
     const menu = useSelector(state => state.basket.form)
-    console.log(menu)
+    console.log("menu", menu)
     return (
         <div className="contMenu" >
             {menu && menu && menu.map((pro, i) => {
