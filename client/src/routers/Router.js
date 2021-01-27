@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import Menu from "../pages/menu";
-import Auth from "../pages/auth";
+import Menu from "../pages/Menu";
+import Auth from "../pages/Auth";
 import Create from "../pages/create";
 import Basket from '../pages/basket'
 function useRouters(isAuthUser) {

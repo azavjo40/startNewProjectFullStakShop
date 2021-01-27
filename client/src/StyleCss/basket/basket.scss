@@ -1,0 +1,22 @@
+$color-1: #00e676;
+.contMenu{
+width: 100%;
+height: 600px;
+position: relative;
+.buyBtn{
+background-color:$color-1;
+border: none;
+color: white;
+border-radius: 3px;
+width: 50%;
+position: absolute;
+top: 100%;
+right: 25%;
+&:hover{
+border: solid 0.5px yellow;
+}
+&:focus{
+outline: none;
+}
+}
+}

@@ -21,9 +21,8 @@ const ModelChoice = ({ setShow, show, props }) => {
             setShow(!show)
         }, 1000)
     }
-    {
-        form && dispatch(toBasket(form))
-    }
+    const autoAdd = () => { form && dispatch(toBasket(form)) }
+    autoAdd()
     return (
         <div className="modalCont" >
             <form className="modalChoice" onSubmit={(e) => addBasket(e)} >

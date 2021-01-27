@@ -1,9 +1,11 @@
 .createCont {
   width: 100%;
-  padding-top: 40px;
+  padding-top: 38px;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 17;
+  position: fixed;
 }
 .createCont .creteForm {
   display: flex;
@@ -13,7 +15,7 @@
   height: 100%;
   background-color: aquamarine;
   border-radius: 10px;
-  margin-top: 8%;
+  margin-top: 7%;
 }
 .createCont .creteForm input {
   margin-top: 20px;
@@ -38,6 +40,15 @@
 }
 .createCont .createBtn:focus {
   outline: none;
+}
+
+.closeBtn {
+  color: red;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.closeBtn:hover {
+  border: solid 0.5px yellow;
 }
 
 /*# sourceMappingURL=create.css.map */
