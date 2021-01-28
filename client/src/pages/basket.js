@@ -12,12 +12,14 @@ function Basket() {
         setCost(costs)
     }, [menu])
     useEffect(() => {
-        costReduce()
-    }, [costReduce])
+        if (menu.cost) {
+            costReduce()
+        }
+    }, [costReduce, menu.cost])
     return (
         <div className="contMenu" >
             {show && <ModelAdress show={show} setShow={setShow} cost={cost} />}
-            {menu && menu && menu.map((pro, i) => {
+            {menu && menu.map((pro, i) => {
                 return (
                     <BasketCart key={i} imageSrc={pro.imageSrc}
                         name={pro.name} cost={pro.cost} sos={pro.sos} i={i}

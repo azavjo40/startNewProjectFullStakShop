@@ -4,6 +4,7 @@ import Menu from "../pages/Menu";
 import Auth from "../pages/Auth";
 import Create from "../pages/create";
 import Basket from '../pages/basket'
+import Order from "../pages/order";
 function useRouters(isAuthUser) {
   if (isAuthUser) {
     return (
@@ -13,6 +14,9 @@ function useRouters(isAuthUser) {
         </Route>
         <Route path="/create" exact>
           <Create />
+        </Route>
+        <Route path="/order" exact>
+          <Order />
         </Route>
         <Redirect to="/" />
       </Switch>

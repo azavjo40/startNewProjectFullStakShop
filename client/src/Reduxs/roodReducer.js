@@ -4,6 +4,7 @@ import { authReducer } from './authReducer'
 import { basketReducer } from './basketReducer'
 import { generalReducer } from './generalReducer'
 import { menuReducer } from './menuReducer'
+import { orderReducer } from './orderReducer'
 
 
 export const roodReducer = combineReducers({
@@ -12,4 +13,5 @@ export const roodReducer = combineReducers({
     , menu: menuReducer
     , general: generalReducer
     , basket: basketReducer
+    , order: orderReducer
 })

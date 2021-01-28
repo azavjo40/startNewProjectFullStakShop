@@ -12,10 +12,11 @@ const ModelAdress = ({ setShow, show, cost }) => {
     const chanheHandler = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value, totalCost: cost, menu })
     }
+    console.log(menu.name)
     const bay = (e) => {
         e.preventDefault()
         if (menu[0]) {
-            dispatch(postOrder({ form: form }))
+            dispatch(postOrder({ form }))
             setTimeout(() => {
                 setForm({ name: "", phone: "", address: "", message: "" })
                 setShow(!show)
