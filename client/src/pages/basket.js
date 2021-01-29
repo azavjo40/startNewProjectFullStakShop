@@ -6,20 +6,21 @@ import '../StyleCss/basket/basket.css'
 function Basket() {
     const menu = useSelector(state => state.basket.form)
     const [show, setShow] = useState(false)
-    const [cost, setCost] = useState([])
+    const [cost, setCost] = useState()
+
     const costReduce = useCallback(() => {
         const costs = menu.reduce((cos, men) => cos + men.cost, 0)
         setCost(costs)
     }, [menu])
     useEffect(() => {
-        if (menu.cost) {
+        if (menu[0]) {
             costReduce()
         }
-    }, [costReduce, menu.cost])
+    }, [costReduce, menu])
     return (
         <div className="contMenu" >
             {show && <ModelAdress show={show} setShow={setShow} cost={cost} />}
-            {menu && menu.map((pro, i) => {
+            {menu[0] && menu.map((pro, i) => {
                 return (
                     <BasketCart key={i} imageSrc={pro.imageSrc}
                         name={pro.name} cost={pro.cost} sos={pro.sos} i={i}

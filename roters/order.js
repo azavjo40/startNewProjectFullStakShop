@@ -5,9 +5,9 @@ const router = Router()
 router.post('/order',
     async (req, res) => {
         try {
-            const { form } = req.body
-            if (form) {
-                const order = new Order({ form })
+            const { menu } = req.body
+            if (menu) {
+                const order = new Order({ menu })
                 await order.save()
                 res.status(201).json({ message: "Thanks for ordering We will reply soon" })
             } else { res.status(400).json({ message: "Please select all fields" }) }

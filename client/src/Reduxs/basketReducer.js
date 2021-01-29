@@ -1,7 +1,7 @@
 //@ts-check
 import { ADD_BASKET } from "./types"
 const initialState = {
-    form: {}
+    form: []
 }
 
 export const basketReducer = (state = initialState, actoin) => {
