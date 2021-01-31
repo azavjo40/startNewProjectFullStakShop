@@ -1,24 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import '../StyleCss/order/order.css'
 function OrderCart() {
+    const [menuOrder, setMenuOrder] = useState([])
     const order = useSelector(state => state.order.allOrder)
-    console.log(order)
+    useEffect(() => {
+        order && order.map((r) => setMenuOrder(r.menu))
+    }, [order])
+    console.log(menuOrder)
     return (
         <div className="orderCart">
-            {/* {order && order.map(ord => {
+            {menuOrder.map(ord => {
                 return (
-                    <ul key={ord._id}>
-                        <ol>{ord.menu.name}</ol>
-                        {ord.menu.map((or, i) => {
-                            return (
-                                <ol key={i}>{or.phone}</ol>
-                            )
-
-                        })}
-                    </ul>
+                    <div>
+                        <p>Name: {ord.nameClient}</p>
+                        <p>Phone: {ord.phone}</p>
+                        <p>Address: {ord.address}</p>
+                        <p>Message: {ord.message}</p>
+                        <p>total-Cost: {ord.totalCost}</p>
+                    </div>
                 )
-            })} */}
+            })}
         </div>
     )
 }

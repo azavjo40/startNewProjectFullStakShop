@@ -14,10 +14,14 @@ function Menu() {
     return (
         <div className="contMenu" >
             {alert && <Alert text={alert} />}
-            {menu && menu.map((pro) => {
+
+            {menu && menu.map((item) => {
                 return (
-                    <MenuCart pro={pro} key={pro._id} imageSrc={pro.imageSrc} name={pro.name}
-                        p={pro.p} cost={pro.cost} _id={pro._id} authUser={authUser} />
+                    <MenuCart
+                        key={item._id}
+                        item={item}
+                        authUser={authUser}
+                    />
                 )
             })}
         </div>

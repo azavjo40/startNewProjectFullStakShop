@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { toBasket } from '../Reduxs/basketAcsion'
 import '../StyleCss/modalChice/modalChoice.css'
-const ModelChoice = ({ setShow, show, props }) => {
-    const [form, setForm] = useState([])
-    const [sos, setSos] = useState([])
+const ModelChoice = ({ setShow, show, item }) => {
+    const [sos, setSos] = useState(undefined)
     const dispatch = useDispatch()
+
     const changehandler = (e) => {
         const check = e.target.checked
         if (check) {
@@ -17,16 +17,17 @@ const ModelChoice = ({ setShow, show, props }) => {
 
     const addBasket = (e) => {
         e.preventDefault()
-        setForm([...form, { ...props, sos }])
-        console.log(form)
+        console.log('Add basket', item)
+        dispatch(toBasket({ ...item, sos }))
         setTimeout(() => {
             setShow(!show)
         }, 1000)
     }
-    useEffect(() => { form && dispatch(toBasket(form)) }, [form, dispatch])
+
+
     return (
         <div className="modalCont" >
-            <form className="modalChoice" onSubmit={(e) => addBasket(e)} >
+            <form className="modalChoice" onSubmit={addBasket}>
                 <button onClick={() => setShow(!show)} className="closeModal">Close</button>
                 <label className="label">Choose a sauce !!!</label>
                 <label className="label"><input required name="sos" onChange={(e) => changehandler(e)} type="radio" value="spicy" />Spicy</label>

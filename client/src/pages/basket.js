@@ -4,24 +4,24 @@ import BasketCart from '../Components/BasketCart'
 import ModelAdress from '../Components/ModalAdress'
 import '../StyleCss/basket/basket.css'
 function Basket() {
-    const menu = useSelector(state => state.basket.form)
+    const items = useSelector(state => state.basket.items)
     const [show, setShow] = useState(false)
     const [cost, setCost] = useState()
 
     const costReduce = useCallback(() => {
-        const costs = menu.reduce((cos, men) => cos + men.cost, 0)
+        const costs = items.reduce((cos, men) => cos + men.cost, 0)
         setCost(costs)
-    }, [menu])
+    }, [items])
     useEffect(() => {
-        if (menu[0]) {
+        if (items[0]) {
             costReduce()
         }
-    }, [costReduce, menu])
-    console.log('basket', menu)
+    }, [costReduce, items])
+    console.log('basket', items)
     return (
         <div className="contMenu" >
             {show && <ModelAdress show={show} setShow={setShow} cost={cost} />}
-            {menu[0] && menu.map((pro, i) => {
+            {items[0] && items.map((pro, i) => {
                 return (
                     <BasketCart key={i} imageSrc={pro.imageSrc}
                         name={pro.name} cost={pro.cost} sos={pro.sos} i={i}
