@@ -13,7 +13,7 @@ const ModelAdress = ({ setShow, show, cost }) => {
         setForm({ ...form, [e.target.name]: e.target.value, totalCost: cost })
     }
 
-    const bay = (e) => {
+    const bayHandler = (e) => {
         e.preventDefault()
         menu.push(form)
         if (menu[0]) {
@@ -28,7 +28,7 @@ const ModelAdress = ({ setShow, show, cost }) => {
     return (
         <div className="createCont" >
             {alert && <Alert text={alert} />}
-            <form className="creteForm" onSubmit={(e) => bay(e)}>
+            <form className="creteForm" onSubmit={(e) => bayHandler(e)}>
                 <label className="closeBtn" onClick={() => setShow(!show)}>close</label>
                 <input required type="text" placeholder="Your Name" name="nameClient" value={form.name} onChange={(e) => chanheHandler(e)} />
                 <input required type="phone" placeholder="your Phone" name="phone" value={form.email} onChange={(e) => chanheHandler(e)} />

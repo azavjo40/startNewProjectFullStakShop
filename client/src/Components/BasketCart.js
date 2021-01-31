@@ -1,9 +1,6 @@
 import React from 'react'
 import '../StyleCss/cart/cart.css'
 const BasketCart = (props) => {
-    // const removeBasket = (pro) => {
-    //     menu.filter(r => r !== pro)
-    // }
     return (
         <>
             { props && <div className="contCart" key={props.i}>

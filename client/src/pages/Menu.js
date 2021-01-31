@@ -16,7 +16,7 @@ function Menu() {
             {alert && <Alert text={alert} />}
             {menu && menu.map((pro) => {
                 return (
-                    <MenuCart key={pro._id} imageSrc={pro.imageSrc} name={pro.name}
+                    <MenuCart pro={pro} key={pro._id} imageSrc={pro.imageSrc} name={pro.name}
                         p={pro.p} cost={pro.cost} _id={pro._id} authUser={authUser} />
                 )
             })}

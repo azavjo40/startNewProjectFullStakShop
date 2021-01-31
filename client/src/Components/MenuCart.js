@@ -9,7 +9,6 @@ const MenuCart = (props) => {
     const [form, setForm] = useState({ imageSrc: "", _id: "" })
     const [check, setCheck] = useState(false)
     const history = useHistory()
-
     const dispatch = useDispatch()
     const removeHandler = () => {
         dispatch(deleteMenu(form))
@@ -28,7 +27,6 @@ const MenuCart = (props) => {
             setCheck(false)
         }
     }
-
     return (
         <>
             {show && <ModelChoice setShow={setShow} show={show} props={props} />}
@@ -40,7 +38,7 @@ const MenuCart = (props) => {
                 {props.authUser ? <label style={{ fontSize: '10px' }}>
                     <input type="checkbox" onChange={(e) => changeHndler(e)} /> Confirm</label> : <p>{props.cost}-PLN</p>}
                 {props.authUser ? <button disabled={!check} onClick={removeHandler}>Delete</button> :
-                    <button onClick={(e) => {
+                    <button onClick={() => {
                         setShow(!show)
                     }}> +</button>}
             </div>

@@ -6,7 +6,7 @@ function OrderCart() {
     console.log(order)
     return (
         <div className="orderCart">
-            {order && order.map(ord => {
+            {/* {order && order.map(ord => {
                 return (
                     <ul key={ord._id}>
                         <ol>{ord.menu.name}</ol>
@@ -18,7 +18,7 @@ function OrderCart() {
                         })}
                     </ul>
                 )
-            })}
+            })} */}
         </div>
     )
 }

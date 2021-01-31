@@ -17,6 +17,7 @@ function Basket() {
             costReduce()
         }
     }, [costReduce, menu])
+    console.log('basket', menu)
     return (
         <div className="contMenu" >
             {show && <ModelAdress show={show} setShow={setShow} cost={cost} />}
