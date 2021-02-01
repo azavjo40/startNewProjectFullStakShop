@@ -22,7 +22,7 @@ function Basket() {
             {showAddress && <ModelAdress showAddress={showAddress} setShowAddress={setShowAddress} cost={cost} />}
             {items[0] && items.map((item, i) => {
                 return (
-                    <BasketCart key={i} item={item} />
+                    <BasketCart key={i} item={item.items} dele={item} />
                 )
             })}
             <button onClick={() => setShowAddress(!showAddress)} className="buyBtn">Next {cost}-PLN</button>

@@ -17,7 +17,8 @@ const ModelChoice = ({ setShow, show, item }) => {
 
     const addBasket = (e) => {
         e.preventDefault()
-        dispatch(toBasket({ ...item, sos }))
+        const items = { ...item, sos }
+        dispatch(toBasket({ items }))
         setTimeout(() => {
             setShow(!show)
         }, 1000)

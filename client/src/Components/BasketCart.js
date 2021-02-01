@@ -3,12 +3,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { deleteItem } from '../Reduxs/basketAcsion'
 import '../StyleCss/cart/cart.css'
 
-const BasketCart = ({ item }) => {
+const BasketCart = ({ item, dele }) => {
     const items = useSelector(state => state.basket.items)
     const dispatch = useDispatch()
-    const deleteHandler = (item) => {
-        const deleteBasket = items.filter(it => it !== item)
-        setTimeout(() => dispatch(deleteItem(deleteBasket)), 500)
+    const deleteHandler = (dele) => {
+        const deleteBasket = items.filter(it => it !== dele)
+        setTimeout(() => {
+            dispatch(deleteItem(deleteBasket))
+        }, 500)
     }
     return (
         <>
@@ -18,7 +20,7 @@ const BasketCart = ({ item }) => {
                 <h3>{item.name}</h3>
                 <p>SOS: {item.sos}</p>
                 <p>COST: {item.cost}-PLN
-                <button onClick={() => deleteHandler(item)} style={{ paddingBottom: "0px" }} >Delete</button></p>
+                <button onClick={() => deleteHandler(dele)} style={{ paddingBottom: "0px" }} >Delete</button></p>
             </div>}
         </>
     )

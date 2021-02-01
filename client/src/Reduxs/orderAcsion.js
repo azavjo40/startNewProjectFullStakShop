@@ -28,7 +28,8 @@ export function getOrder(paramId) {
             dispach(showLoader())
             const res = await fetch('/api/allorder', requestOptions)
             const data = await res.json()
-            dispach({ type: ALL_ORDER, payload: data })
+            const items = data.map(items => { return items.order })
+            dispach({ type: ALL_ORDER, payload: items })
             dispach(hideLoader())
         } catch (e) { dispach(showAlert('Something went wrong try again')) }
     }

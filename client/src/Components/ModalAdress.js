@@ -4,6 +4,7 @@ import { postOrder } from '../Reduxs/orderAcsion'
 import Alert from '../Components/Alert'
 import '../StyleCss/create/create.css'
 import { showAlert } from '../Reduxs/generalAcsion'
+import { clearBasket } from '../Reduxs/basketAcsion'
 const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
     const [form, setForm] = useState({ nameClient: "", phone: "", address: "", message: "" })
     const dispatch = useDispatch()
@@ -14,12 +15,13 @@ const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
     }
     const bayHandler = (e) => {
         e.preventDefault()
-        order.push(form)
         if (order[0]) {
+            order.push({ form })
             dispatch(postOrder({ order: order }))
             setTimeout(() => {
                 setForm({ nameClient: "", phone: "", address: "", message: "" })
                 setShowAddress(!showAddress)
+                dispatch(clearBasket())
             }, 1000)
         } else { dispatch(showAlert('First Add Menu  To Basket !!')) }
     }

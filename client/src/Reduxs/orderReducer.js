@@ -1,7 +1,7 @@
 //@ts-check
 import { ALL_ORDER } from "./types"
 const initialState = {
-    allOrder: []
+    allOrder: null
 }
 export const orderReducer = (state = initialState, action) => {
     switch (action.type) {
