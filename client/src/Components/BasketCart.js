@@ -1,18 +1,24 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteItem } from '../Reduxs/basketAcsion'
 import '../StyleCss/cart/cart.css'
 
-const BasketCart = (props) => {
+const BasketCart = ({ item }) => {
+    const items = useSelector(state => state.basket.items)
     const dispatch = useDispatch()
+    const deleteHandler = (item) => {
+        const deleteBasket = items.filter(it => it !== item)
+        setTimeout(() => dispatch(deleteItem(deleteBasket)), 500)
+    }
     return (
         <>
-            { props && <div className="contCart" key={props.i}>
-                <img src={props.imageSrc} className="imgCart" alt={props.name} />
+            { item && <div className="contCart" key={item.i}>
+                <img src={item.imageSrc} className="imgCart" alt={item.name} />
                 <div className="cartRidius"><p>20-30-M</p></div>
-                <h3>{props.name}</h3>
-                <p>SOS: {props.sos}</p>
-                <p>COST: {props.cost}-PLN
-                <button onClick={() => dispatch(deleteItem(props._id))} style={{ paddingBottom: "0px" }} >Delete</button></p>
+                <h3>{item.name}</h3>
+                <p>SOS: {item.sos}</p>
+                <p>COST: {item.cost}-PLN
+                <button onClick={() => deleteHandler(item)} style={{ paddingBottom: "0px" }} >Delete</button></p>
             </div>}
         </>
     )

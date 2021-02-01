@@ -1,6 +1,9 @@
 //@ts-check
-// import { LOCAL_STORAGE } from "../constant/localstorage"
-import { ADD_BASKET } from "./types"
+import { ADD_BASKET, CLEAR_BASKET, DELETE_BASKET } from "./types"
+
+export const clearBasket = () => {
+    return { type: CLEAR_BASKET, payload: [] }
+}
 
 export function toBasket(item) {
     return dispach => {
@@ -10,3 +13,12 @@ export function toBasket(item) {
         })
     }
 }
+export function deleteItem(deleteBasket) {
+    return dispach => {
+        dispach({
+            type: DELETE_BASKET,
+            payload: deleteBasket
+        })
+    }
+}
+

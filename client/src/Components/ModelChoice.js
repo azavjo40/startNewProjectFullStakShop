@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { toBasket } from '../Reduxs/basketAcsion'
 import '../StyleCss/modalChice/modalChoice.css'
@@ -17,14 +17,11 @@ const ModelChoice = ({ setShow, show, item }) => {
 
     const addBasket = (e) => {
         e.preventDefault()
-        console.log('Add basket', item)
         dispatch(toBasket({ ...item, sos }))
         setTimeout(() => {
             setShow(!show)
         }, 1000)
     }
-
-
     return (
         <div className="modalCont" >
             <form className="modalChoice" onSubmit={addBasket}>

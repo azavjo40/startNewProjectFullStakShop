@@ -5,11 +5,11 @@ import ModelAdress from '../Components/ModalAdress'
 import '../StyleCss/basket/basket.css'
 function Basket() {
     const items = useSelector(state => state.basket.items)
-    const [show, setShow] = useState(false)
+    const [showAddress, setShowAddress] = useState(false)
     const [cost, setCost] = useState()
 
     const costReduce = useCallback(() => {
-        const costs = items.reduce((cos, men) => cos + men.cost, 0)
+        const costs = items.reduce((initial, costs) => initial + costs.cost, 0)
         setCost(costs)
     }, [items])
     useEffect(() => {
@@ -17,18 +17,15 @@ function Basket() {
             costReduce()
         }
     }, [costReduce, items])
-    console.log('basket', items)
     return (
         <div className="contMenu" >
-            {show && <ModelAdress show={show} setShow={setShow} cost={cost} />}
-            {items[0] && items.map((pro, i) => {
+            {showAddress && <ModelAdress showAddress={showAddress} setShowAddress={setShowAddress} cost={cost} />}
+            {items[0] && items.map((item, i) => {
                 return (
-                    <BasketCart key={i} imageSrc={pro.imageSrc}
-                        name={pro.name} cost={pro.cost} sos={pro.sos} i={i}
-                    />
+                    <BasketCart key={i} item={item} />
                 )
             })}
-            <button onClick={() => setShow(!show)} className="buyBtn">Next {cost}-PLN</button>
+            <button onClick={() => setShowAddress(!showAddress)} className="buyBtn">Next {cost}-PLN</button>
         </div>
     )
 }

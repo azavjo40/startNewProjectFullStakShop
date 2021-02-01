@@ -6,4 +6,6 @@ export const IS_AUTH_USER = "AUTH/IS_AUTH_USER";
 export const AUTH_TOKEN = "AUTH/AUTH_TOKEN"
 export const MENU_GET_ALL = "MENU/MENU_GET_ALL"
 export const ADD_BASKET = "BASKET/ADD_BASKET"
+export const DELETE_BASKET = "BASKET/DELETE_BASKET"
+export const CLEAR_BASKET = "BASKET/CLEAR_BASKET"
 export const ALL_ORDER = "ORDER/ALL_ORDER"

@@ -1,4 +1,5 @@
 //@ts-check
+import { clearBasket } from "./basketAcsion"
 import { hideLoader, showAlert, showLoader } from "./generalAcsion"
 import { ALL_ORDER } from "./types"
 
@@ -14,6 +15,7 @@ export function postOrder(form) {
             const res = await fetch('/api/order', requestOptions)
             const data = await res.json()
             dispach(showAlert(data.message))
+            dispach(clearBasket())
         } catch (e) { dispach(showAlert('Something went wrong try again')) }
     }
 }

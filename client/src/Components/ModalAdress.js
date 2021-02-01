@@ -4,23 +4,22 @@ import { postOrder } from '../Reduxs/orderAcsion'
 import Alert from '../Components/Alert'
 import '../StyleCss/create/create.css'
 import { showAlert } from '../Reduxs/generalAcsion'
-const ModelAdress = ({ setShow, show, cost }) => {
+const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
     const [form, setForm] = useState({ nameClient: "", phone: "", address: "", message: "" })
     const dispatch = useDispatch()
-    const menu = useSelector(state => state.basket.form)
+    const order = useSelector(state => state.basket.items)
     const alert = useSelector((state) => state.general.alert)
     const chanheHandler = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value, totalCost: cost })
     }
-
     const bayHandler = (e) => {
         e.preventDefault()
-        menu.push(form)
-        if (menu[0]) {
-            dispatch(postOrder({ menu: menu }))
+        order.push(form)
+        if (order[0]) {
+            dispatch(postOrder({ order: order }))
             setTimeout(() => {
                 setForm({ nameClient: "", phone: "", address: "", message: "" })
-                setShow(!show)
+                setShowAddress(!showAddress)
             }, 1000)
         } else { dispatch(showAlert('First Add Menu  To Basket !!')) }
     }
@@ -29,7 +28,7 @@ const ModelAdress = ({ setShow, show, cost }) => {
         <div className="createCont" >
             {alert && <Alert text={alert} />}
             <form className="creteForm" onSubmit={(e) => bayHandler(e)}>
-                <label className="closeBtn" onClick={() => setShow(!show)}>close</label>
+                <label className="closeBtn" onClick={() => setShowAddress(!showAddress)}>close</label>
                 <input required type="text" placeholder="Your Name" name="nameClient" value={form.name} onChange={(e) => chanheHandler(e)} />
                 <input required type="phone" placeholder="your Phone" name="phone" value={form.email} onChange={(e) => chanheHandler(e)} />
                 <input required type="text" placeholder="Your Address" name="address" value={form.address} onChange={(e) => chanheHandler(e)} />

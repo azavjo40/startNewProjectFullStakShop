@@ -1,6 +1,6 @@
 //@ts-check
 const { model, Schema } = require('mongoose')
 const orderSchema = new Schema({
-    menu: {}
+    order: []
 })
 module.exports = model('OrderSchema', orderSchema)

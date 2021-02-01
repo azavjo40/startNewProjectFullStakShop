@@ -14,7 +14,6 @@ function Menu() {
     return (
         <div className="contMenu" >
             {alert && <Alert text={alert} />}
-
             {menu && menu.map((item) => {
                 return (
                     <MenuCart
