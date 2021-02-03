@@ -4,21 +4,18 @@ import '../StyleCss/order/order.css'
 function OrderCart() {
     const order = useSelector(state => state.order.allOrder)
     console.log(order)
+    // console.log(order && order.map(r => { return r.formAddress }))
     return (
         <div className="orderCart">
-            {/* {order && order.map((ord, i) => {
-                // console.log(JSON.stringify('oo', ord[0]))
-
+            {order && order.map((item, i) => {
                 return (
                     <div key={i}>
-                        <p>Name: {ord.nameClient}</p>
-                        <p>Phone: {ord.phone}</p>
-                        <p>Address: {ord.address}</p>
-                        <p>Message: {ord.message}</p>
-                        <p>total-Cost: {ord.totalCost}</p>
+                        <p>Kebab: {item.name}</p>
+                        <p>Cost: {item.cost}</p>
+                        <p>paragraph: {item.p}</p>
                     </div>
                 )
-            })} */}
+            })}
         </div>
     )
 }

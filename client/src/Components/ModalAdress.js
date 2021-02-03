@@ -1,27 +1,29 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { postOrder } from '../Reduxs/orderAcsion'
+import { autoOrderPost } from '../Reduxs/orderAcsion'
+import { useHistory } from 'react-router-dom'
 import Alert from '../Components/Alert'
 import '../StyleCss/create/create.css'
 import { showAlert } from '../Reduxs/generalAcsion'
 import { clearBasket } from '../Reduxs/basketAcsion'
 const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
-    const [form, setForm] = useState({ nameClient: "", phone: "", address: "", message: "" })
+    const [formAddress, setFormAddress] = useState({ nameClient: "", phone: "", address: "", message: "" })
     const dispatch = useDispatch()
+    const history = useHistory()
     const order = useSelector(state => state.basket.items)
     const alert = useSelector((state) => state.general.alert)
     const chanheHandler = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value, totalCost: cost })
+        setFormAddress({ ...formAddress, [e.target.name]: e.target.value, totalCost: cost })
     }
     const bayHandler = (e) => {
         e.preventDefault()
         if (order[0]) {
-            order.push({ form })
-            dispatch(postOrder({ order: order }))
+            dispatch(autoOrderPost(order, formAddress))
             setTimeout(() => {
-                setForm({ nameClient: "", phone: "", address: "", message: "" })
+                setFormAddress({ nameClient: "", phone: "", address: "", message: "" })
                 setShowAddress(!showAddress)
                 dispatch(clearBasket())
+                history.push('/')
             }, 1000)
         } else { dispatch(showAlert('First Add Menu  To Basket !!')) }
     }
@@ -31,10 +33,10 @@ const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
             {alert && <Alert text={alert} />}
             <form className="creteForm" onSubmit={(e) => bayHandler(e)}>
                 <label className="closeBtn" onClick={() => setShowAddress(!showAddress)}>close</label>
-                <input required type="text" placeholder="Your Name" name="nameClient" value={form.name} onChange={(e) => chanheHandler(e)} />
-                <input required type="phone" placeholder="your Phone" name="phone" value={form.email} onChange={(e) => chanheHandler(e)} />
-                <input required type="text" placeholder="Your Address" name="address" value={form.address} onChange={(e) => chanheHandler(e)} />
-                <input required type="text" placeholder="Write Additionally" name="message" value={form.message} onChange={(e) => chanheHandler(e)} />
+                <input required type="text" placeholder="Your Name" name="nameClient" value={formAddress.name} onChange={(e) => chanheHandler(e)} />
+                <input required type="phone" placeholder="your Phone" name="phone" value={formAddress.email} onChange={(e) => chanheHandler(e)} />
+                <input required type="text" placeholder="Your Address" name="address" value={formAddress.address} onChange={(e) => chanheHandler(e)} />
+                <input required type="text" placeholder="Write Additionally" name="message" value={formAddress.message} onChange={(e) => chanheHandler(e)} />
                 <button style={{ margin: "15px" }} className="createBtn">bay</button>
             </form>
         </div>
