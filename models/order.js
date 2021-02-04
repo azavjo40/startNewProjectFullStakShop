@@ -1,17 +1,7 @@
 //@ts-check
 const { model, Schema } = require('mongoose')
 const orderSchema = new Schema({
-    itemsOrder: [
-        { name: String, p: String, cost: Number, sos: String },
-        { name: String, p: String, cost: Number, sos: String },
-        { name: String, p: String, cost: Number, sos: String },
-        { name: String, p: String, cost: Number, sos: String },
-        { name: String, p: String, cost: Number, sos: String },
-        { name: String, p: String, cost: Number, sos: String },
-        { name: String, p: String, cost: Number, sos: String },
-        { name: String, p: String, cost: Number, sos: String },
-        { name: String, p: String, cost: Number, sos: String }
-    ],
+    itemsOrder: {},
     itemsAddress: {}
 })
 module.exports = model('OrderSchema', orderSchema)

@@ -21,15 +21,14 @@ export const autoOrderPost = (itemsOrder, itemsAddress) => {
     }
 
 }
-export function postOrder(itaemsOrder, itemsAddress) {
+export function postOrder(itemsOrder, itemsAddress) {
     return async dispach => {
         try {
-            const raw = JSON.stringify({ itaemsOrder, itemsAddress })
-            console.log(raw)
+            const items = JSON.stringify({ itemsOrder, itemsAddress })
             const requestOptions = {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
-                body: raw
+                body: items
             }
             const res = await fetch('/api/order', requestOptions)
             const data = await res.json()
@@ -47,11 +46,7 @@ export function getOrder() {
             dispach(showLoader())
             const res = await fetch('/api/allorder', requestOptions)
             const data = await res.json()
-            console.log(JSON.stringify(JSON.stringify(data)))
-            let items = ''
-            data.map(item => { return items = item.order })
-            console.log(JSON.stringify(items))
-            dispach({ type: ALL_ORDER, payload: items })
+            dispach({ type: ALL_ORDER, payload: data })
             dispach(hideLoader())
         } catch (e) { dispach(showAlert('Something went wrong try again')) }
     }

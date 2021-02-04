@@ -4,11 +4,6 @@ const router = Router()
 
 router.post('/order',
     async (req, res) => {
-        // const { name, p, cost, sos, nameClient, phone, address,
-        //     message, totalCost } = req.body
-        // // const data = req.body.map(r => { return r })
-        // console.log(nameClient)
-        console.log(req.body)
         try {
             if (req.body) {
                 const order = new Order(req.body)

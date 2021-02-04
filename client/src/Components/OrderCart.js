@@ -1,19 +1,24 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import '../StyleCss/order/order.css'
-function OrderCart() {
-    const order = useSelector(state => state.order.allOrder)
-    console.log(order)
-    // console.log(order && order.map(r => { return r.formAddress }))
+function OrderCart({ address, order }) {
     return (
-        <div className="orderCart">
+        <div key={address.nameClient} className="orderCart">
+            <ul>
+                <ol>NEW ORDERS</ol>
+                <ol>CLIENT: {address.nameClient}</ol>
+                <ol>ADDRESS: {address.address}</ol>
+                <ol>MESSAGE: {address.message}</ol>
+                <ol>TOTAL-COST: = {address.totalCost} - PLN</ol>
+            </ul>
             {order && order.map((item, i) => {
                 return (
-                    <div key={i}>
-                        <p>Kebab: {item.name}</p>
-                        <p>Cost: {item.cost}</p>
-                        <p>paragraph: {item.p}</p>
-                    </div>
+                    <ul key={i}>
+                        <ol>ORDERS: {i}</ol>
+                        <ol >KEBAB: {item.name}</ol>
+                        <ol >PARAGRAPH: {item.p}</ol>
+                        <ol >COST: = {item.cost} - PLN</ol>
+                        <ol >SOS: {item.sos}</ol>
+                    </ul>
                 )
             })}
         </div>
