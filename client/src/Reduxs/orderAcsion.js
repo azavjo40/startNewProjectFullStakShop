@@ -52,3 +52,15 @@ export function getOrder() {
     }
 
 }
+export const removeOrder = (id) => {
+    return async dispach => {
+        try {
+            const options = { method: 'DELETE' }
+            const res = await fetch(`/api/delete/${id}`, options)
+            const data = await res.json()
+            dispach(showAlert(data.message))
+        } catch (e) {
+            { dispach(showAlert('Something went wrong try again')) }
+        }
+    }
+} 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import OrderCart from '../Components/OrderCart'
 import { getOrder } from '../Reduxs/orderAcsion'
@@ -16,7 +16,7 @@ function Order() {
                 return (
                     <>
 
-                        <OrderCart key={i} address={item.itemsAddress} order={item && item.itemsOrder.map(item => { return item })} />
+                        <OrderCart id={item._id} address={item.itemsAddress} order={item && item.itemsOrder.map(item => { return item })} />
                     </>
                 )
             })}

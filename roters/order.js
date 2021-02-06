@@ -25,4 +25,12 @@ router.get('/allorder',
         }
     })
 
+router.delete('/delete/:id',
+    async (req, res) => {
+        try {
+            await Order.remove({ _id: req.params.id })
+            res.status(200).json({ message: "Remove Order" })
+        } catch (e) { res.status(500).jsom({ message: "Something went wrong, please try again" }) }
+    })
+
 module.exports = router

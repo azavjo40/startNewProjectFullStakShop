@@ -19,7 +19,7 @@ const CreateCart = () => {
         setFile(fileField)
     }
     const create = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         dispatch(createAcsion(form, file))
         setForm({ name: "", p: "", cost: "" })
         setFile(null)
