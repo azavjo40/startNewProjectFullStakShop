@@ -5,6 +5,7 @@ import Auth from "../pages/Auth";
 import Create from "../pages/create";
 import Basket from '../pages/basket'
 import Order from "../pages/order";
+import Contact from '../pages/constact'
 function useRouters(isAuthUser) {
   if (isAuthUser) {
     return (
@@ -17,6 +18,9 @@ function useRouters(isAuthUser) {
         </Route>
         <Route path="/order" exact>
           <Order />
+        </Route>
+        <Route path="/contact" exact>
+          <Contact />
         </Route>
         <Redirect to="/" />
       </Switch>
@@ -32,6 +36,9 @@ function useRouters(isAuthUser) {
       </Route>
       <Route path="/basket" exact>
         <Basket />
+      </Route>
+      <Route path="/contact" exact>
+        <Contact />
       </Route>
       <Redirect to="/" />
     </Switch>

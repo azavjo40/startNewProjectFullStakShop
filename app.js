@@ -12,6 +12,7 @@ app.use(bodyParser.json())
 app.use("/api/auth", require("./roters/auth_user"));
 app.use("/api", require('./roters/menu_create'))
 app.use("/api", require('./roters/order'))
+app.use("/api", require('./roters/contact'))
 app.use(cors);
 app.use(morgan("dev"));
 const PORT = process.env.PORT || config.get("port") || 5000;

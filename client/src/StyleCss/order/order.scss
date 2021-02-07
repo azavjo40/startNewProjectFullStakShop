@@ -16,6 +16,8 @@ button{
 border: none;
 border-radius: 5px;
 height: 40px;
+background-color: red;
+color: whitesmoke;
 &:focus{
 outline: none;
 }
@@ -31,7 +33,7 @@ width: 100%;
 }
 h3{
 display: flex;
-justify-content: start;
+justify-content: flex-start;
 align-items: center;
 user-select: none;
 width: 80%;
@@ -76,7 +78,7 @@ border: solid 0.5px yellow;
 ul{
 display: flex;
 flex-direction: column;
-justify-content: start;
+justify-content: flex-start;
 align-items: flex-start;
 width: 200px;
 height: 230px;

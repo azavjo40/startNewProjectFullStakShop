@@ -2,6 +2,7 @@
 const { model, Schema } = require('mongoose')
 const orderSchema = new Schema({
     itemsOrder: {},
-    itemsAddress: {}
+    itemsAddress: {},
+    date: { type: Date, default: Date.now }
 })
 module.exports = model('OrderSchema', orderSchema)

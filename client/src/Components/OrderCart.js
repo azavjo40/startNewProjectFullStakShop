@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { removeOrder } from '../Reduxs/orderAcsion'
-import { useHistory } from 'react-router-dom'
+import { getOrder, removeOrder } from '../Reduxs/orderAcsion'
 import '../StyleCss/order/order.css'
 function OrderCart({ address, order, id }) {
-    const history = useHistory()
     const dispatch = useDispatch()
     const [openModal, setOpenModal] = useState(false)
     const deleteHandler = (e) => {
         e.preventDefault()
         dispatch(removeOrder(id))
-        history.push('/')
+        dispatch(getOrder())
     }
     return (
         <div key={id} className="orderCart">
@@ -25,7 +23,7 @@ function OrderCart({ address, order, id }) {
             { openModal && <div className="openModal">
                 <h1 onClick={() => { setOpenModal(!openModal) }}>Close</h1>
                 <ul key={id}>
-                    <ol>NEW ORDERS</ol>
+                    <ol>ADDRESS CLIENT</ol>
                     <ol>CLIENT: {address.nameClient}</ol>
                     <ol>ADDRESS: {address.address}</ol>
                     <ol>MESSAGE: {address.message}</ol>

@@ -18,6 +18,8 @@
   border: none;
   border-radius: 5px;
   height: 40px;
+  background-color: red;
+  color: whitesmoke;
 }
 .contOrder form button:focus {
   outline: none;
@@ -32,7 +34,7 @@
 }
 .contOrder h3 {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   user-select: none;
   width: 80%;
@@ -78,7 +80,7 @@
 .contOrder .openModal ul {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: flex-start;
   width: 200px;
   height: 230px;

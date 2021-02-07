@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { deleteMenu } from '../Reduxs/menuAcsion'
-import { useHistory } from 'react-router-dom'
+import { allmenu, deleteMenu } from '../Reduxs/menuAcsion'
 import '../StyleCss/cart/cart.css'
 import ModelChoice from './ModelChoice'
 
@@ -9,13 +8,11 @@ const MenuCart = ({ item, authUser }) => {
     const [show, setShow] = useState(false)
     const [form, setForm] = useState({ imageSrc: "", _id: "" })
     const [check, setCheck] = useState(false)
-    const history = useHistory()
     const dispatch = useDispatch()
-
     const removeHandler = () => {
         dispatch(deleteMenu(form))
         setTimeout(() => {
-            history.push('/create')
+            dispatch(allmenu())
         }, 1000)
     }
 

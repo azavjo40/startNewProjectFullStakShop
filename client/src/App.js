@@ -19,12 +19,12 @@ function App() {
     <div className="cont">
       <Router>
         {isAuthUser ? (
-          <Navbar home="MyHome" contact="Contacts" create="Create" order="Order"
-            logout="Logout" lo="/" cr="/create" h="/" o="/order"
+          <Navbar home="MyHome" contact="MyContacts" create="Create" order="Order"
+            logout="Logout" lo="/" cr="/create" h="/" o="/order" c="contact"
           />
         ) : (
             <Navbar home="Home" contact="Contacts" login="Login" l="/auth"
-              basket="Basket" b="/basket"
+              basket="Basket" b="/basket" c="contact"
             />
           )}
         {routers}

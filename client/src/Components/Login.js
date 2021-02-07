@@ -13,7 +13,7 @@ function Login() {
     const dispach = useDispatch();
 
     const Login = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         dispach(authLogin(form));
         setForm({ email: "", password: "" });
     };

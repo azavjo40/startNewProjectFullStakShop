@@ -59,8 +59,6 @@ export const removeOrder = (id) => {
             const res = await fetch(`/api/delete/${id}`, options)
             const data = await res.json()
             dispach(showAlert(data.message))
-        } catch (e) {
-            { dispach(showAlert('Something went wrong try again')) }
-        }
+        } catch (e) { dispach(showAlert('Something went wrong try again')) }
     }
 } 
