@@ -4,7 +4,9 @@ import '../StyleCss/contact/contact.css'
 function MyContactCart() {
     return (
         <div className="contContact">
-            <h1>Hello MyContact  Cart</h1>
+            <form>
+                <h1>MyContact</h1>
+            </form>
         </div>
     )
 }

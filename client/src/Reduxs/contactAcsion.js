@@ -8,7 +8,6 @@ export const postContact = (form) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(form)
             }
-            ////
             const res = await fetch('/api/contact', options)
             const data = await res.json()
             dispach(showAlert(data.message))

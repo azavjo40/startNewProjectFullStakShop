@@ -12,4 +12,11 @@ router.post('/contact',
         } catch (e) { res.status(500).jsom({ message: "Something went wrong, please try again" }) }
     })
 
+router.get('/myContacts',
+    async (req, res) => {
+        try {
+            const contacts = await Contact.find()
+            res.status(200).json(contacts)
+        } catch (e) { res.status(500).json({ message: "Something went wrong, please try again" }) }
+    })
 module.exports = router

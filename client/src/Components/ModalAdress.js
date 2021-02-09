@@ -25,7 +25,14 @@ const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
                 dispatch(clearBasket())
                 history.push('/')
             }, 1000)
-        } else { dispatch(showAlert('First Add Menu  To Basket !!')) }
+        } else {
+            dispatch(showAlert('First Add Menu  To Basket !!'))
+            setTimeout(() => {
+                setFormAddress({ nameClient: "", phone: "", address: "", message: "" })
+                history.push('/')
+            }, 1000)
+
+        }
     }
 
     return (
