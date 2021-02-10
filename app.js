@@ -9,10 +9,10 @@ app.use('/uploads', express.static('uploads'))
 app.use(express.json({ extended: true }))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-app.use("/api/auth", require("./roters/auth_user"));
-app.use("/api", require('./roters/menu_create'))
-app.use("/api", require('./roters/order'))
-app.use("/api", require('./roters/contact'))
+app.use("/api/auth", require("./routers/auth_user"));
+app.use("/api", require('./routers/menu_create'))
+app.use("/api", require('./routers/order'))
+app.use("/api", require('./routers/contact'))
 app.use(cors);
 app.use(morgan("dev"));
 const PORT = process.env.PORT || config.get("port") || 5000;

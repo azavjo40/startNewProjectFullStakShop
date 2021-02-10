@@ -14,7 +14,7 @@ function ContactCart() {
     }
     const sendContact = (e) => {
         e.preventDefault()
-        if (!form) {
+        if (form) {
             dispatch(postContact(form))
             setTimeout(() => {
                 setform({ name: '', email: '', phone: '', message: '' })
@@ -22,6 +22,7 @@ function ContactCart() {
         }
         dispatch(showAlert("Fil Out The Form"))
     }
+
     return (
         <form className="contactCart" onSubmit={sendContact} >
             {alert && <Alert text={alert} />}

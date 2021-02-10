@@ -1,0 +1,63 @@
+.myContactCart {
+  padding-top: 40px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.showModal {
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  cursor: pointer;
+  padding: 0px 0px 10px 20px;
+  user-select: none;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  z-index: 2;
+}
+.showModal:hover {
+  border: solid 0.5px yellow;
+}
+
+.myContactModal {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  height: 1000px;
+  position: fixed;
+  top: 30px;
+  background-color: #F0FFFF;
+  z-index: 3;
+}
+.myContactModal h3 {
+  position: absolute;
+  z-index: 4;
+  user-select: none;
+  cursor: pointer;
+  top: 10px;
+  right: 20px;
+  border-radius: 3px;
+  border: 0.5px solid yellowgreen;
+  font-size: 20px;
+}
+.myContactModal h3:hover {
+  color: red;
+  border: 0.5px solid yellow;
+}
+.myContactModal p {
+  padding: 20px;
+}
+.myContactModal span {
+  padding-top: 10px;
+}
+
+/*# sourceMappingURL=myContact.css.map */

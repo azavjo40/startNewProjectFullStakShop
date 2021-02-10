@@ -12,7 +12,7 @@ router.post('/contact',
         } catch (e) { res.status(500).jsom({ message: "Something went wrong, please try again" }) }
     })
 
-router.get('/myContacts',
+router.get('/mycontacts',
     async (req, res) => {
         try {
             const contacts = await Contact.find()

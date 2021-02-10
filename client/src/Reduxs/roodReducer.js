@@ -5,7 +5,7 @@ import { basketReducer } from './basketReducer'
 import { generalReducer } from './generalReducer'
 import { menuReducer } from './menuReducer'
 import { orderReducer } from './orderReducer'
-
+import { contsactReducer } from './contactReducer'
 
 export const roodReducer = combineReducers({
     // тут будить хранилешь 
@@ -14,4 +14,5 @@ export const roodReducer = combineReducers({
     , general: generalReducer
     , basket: basketReducer
     , order: orderReducer
+    , contact: contsactReducer
 })
