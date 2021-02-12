@@ -1,6 +1,7 @@
 //@ts-check
 import { clearBasket } from "./basketAcsion"
-import { hideLoader, showAlert, showLoader } from "./generalAcsion"
+import { showAlert } from "./generalAcsion"
+import { httpFetch } from "./hooks/httpFetch"
 import { ALL_ORDER } from "./types"
 
 export const autoOrderPost = (itemsOrder, itemsAddress) => {
@@ -24,15 +25,8 @@ export const autoOrderPost = (itemsOrder, itemsAddress) => {
 export function postOrder(itemsOrder, itemsAddress) {
     return async dispach => {
         try {
-            const items = JSON.stringify({ itemsOrder, itemsAddress })
-            const requestOptions = {
-                method: "POST",
-                headers: { 'Content-Type': 'application/json' },
-                body: items
-            }
-            const res = await fetch('/api/order', requestOptions)
-            const data = await res.json()
-            dispach(showAlert(data.message))
+            const items = { itemsOrder, itemsAddress }
+            dispach(httpFetch('/api/order', 'POST', items, null, null, null))
             dispach(clearBasket())
         } catch (e) { dispach(showAlert('Something went wrong try again')) }
     }
@@ -40,14 +34,7 @@ export function postOrder(itemsOrder, itemsAddress) {
 export function getOrder() {
     return async dispach => {
         try {
-            const requestOptions = {
-                method: 'GET'
-            }
-            dispach(showLoader())
-            const res = await fetch('/api/allorder', requestOptions)
-            const data = await res.json()
-            dispach({ type: ALL_ORDER, payload: data })
-            dispach(hideLoader())
+            dispach(httpFetch('/api/allorder', 'GET', null, null, null, ALL_ORDER))
         } catch (e) { dispach(showAlert('Something went wrong try again')) }
     }
 
@@ -55,10 +42,7 @@ export function getOrder() {
 export const removeOrder = (id) => {
     return async dispach => {
         try {
-            const options = { method: 'DELETE' }
-            const res = await fetch(`/api/delete/${id}`, options)
-            const data = await res.json()
-            dispach(showAlert(data.message))
+            dispach(httpFetch(`/api/delete/${id}`, 'DELETE', null, null, null, null))
         } catch (e) { dispach(showAlert('Something went wrong try again')) }
     }
 } 

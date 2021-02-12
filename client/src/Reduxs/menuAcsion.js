@@ -1,5 +1,6 @@
 //@ts-check
 import { hideLoader, showAlert, showLoader } from "./generalAcsion"
+import { httpFetch } from "./hooks/httpFetch";
 import { MENU_GET_ALL } from "./types";
 
 
@@ -7,17 +8,18 @@ export function deleteMenu(form) {
     return async dispach => {
         const formPars = { imageSrc: form.imageSrc, _id: form._id }
         try {
-            const requestOptions = {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formPars)
-            }
+            // const requestOptions = {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(formPars)
+            // }
             if (form) {
-                dispach(showLoader())
-                const res = await fetch('/api/delete', requestOptions)
-                const data = await res.json()
-                dispach(showAlert(data.message))
-                dispach(hideLoader())
+                // dispach(showLoader())
+                // const res = await fetch('/api/delete', requestOptions)
+                // const data = await res.json()
+                // dispach(showAlert(data.message))
+                // dispach(hideLoader())
+                dispach(httpFetch('/api/delete', 'POST', formPars, null, null, null))
                 dispach(showAlert('Menu Deleted'))
             }
         } catch (e) { dispach(showAlert('Something went wrong try again')) }
@@ -27,14 +29,7 @@ export function deleteMenu(form) {
 export function allmenu() {
     return async dispach => {
         try {
-            const requestOptions = {
-                method: 'GET'
-            }
-            dispach(showLoader())
-            const res = await fetch('/api/allmenu', requestOptions)
-            const data = await res.json()
-            dispach({ type: MENU_GET_ALL, payload: data })
-            dispach(hideLoader())
+            dispach(httpFetch('/api/allmenu', 'GET', null, null, null, MENU_GET_ALL))
         } catch (e) { dispach(showAlert('Something went wrong try again')) }
     }
 }
@@ -47,17 +42,7 @@ export function createAcsion(form, file) {
             formdata.append("cost", form.cost);
             formdata.append("p", form.p);
             formdata.append("file", file);
-            const requestOptions = {
-                method: 'POST',
-                headers: {
-                },
-                body: formdata
-            }
-            dispach(showLoader())
-            const res = await fetch("/api/create", requestOptions)
-            const data = await res.json()
-            dispach(showAlert(data.message))
-            dispach(hideLoader())
+            dispach(httpFetch('/api/create', null, null, formdata, null, null))
         } catch (e) { dispach(showAlert('Something went wrong try again')) }
     }
 }

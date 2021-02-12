@@ -19,4 +19,12 @@ router.get('/mycontacts',
             res.status(200).json(contacts)
         } catch (e) { res.status(500).json({ message: "Something went wrong, please try again" }) }
     })
+
+router.delete('/contact/delete/:id',
+    async (req, res) => {
+        try {
+            await Contact.remove({ _id: req.params.id })
+            res.status(200).json({ message: "Remove Contact" })
+        } catch (e) { res.status(500).json({ message: "Something went wrong, please try again" }) }
+    })
 module.exports = router
