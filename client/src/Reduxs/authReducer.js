@@ -1,12 +1,9 @@
 //@ts-check
-import {
-  IS_AUTH_USER,
-  AUTH_TOKEN,
-} from "./types";
+import { IS_AUTH_USER, AUTH_TOKEN } from "./types";
 
 const initialState = {
   isAuthUser: false,
-  token: null
+  token: null,
 };
 
 export const authReducer = (state = initialState, actoin) => {
@@ -14,7 +11,8 @@ export const authReducer = (state = initialState, actoin) => {
     case IS_AUTH_USER:
       return { ...state, isAuthUser: actoin.payload };
     case AUTH_TOKEN:
-      return { ...state, token: actoin.payload }
-    default: return state;
+      return { ...state, token: actoin.payload };
+    default:
+      return state;
   }
 };

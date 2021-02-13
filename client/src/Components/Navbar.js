@@ -7,7 +7,7 @@ import { logout } from "../Reduxs/authAcsions";
 
 const Navbar = (props) => {
   const [isLoadin, setIsLoading] = useState(false);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   return (
     <header className="header">
       <img
@@ -20,63 +20,66 @@ const Navbar = (props) => {
         className={isLoadin ? "openNav" : "nav_links"}
         onClick={() => setIsLoading(false)}
       >
-
         {props.home ? (
           <li>
             <NavLink to={props.h ? props.h : ""}>{props.home}</NavLink>
           </li>
         ) : (
-            ""
-          )}
+          ""
+        )}
 
         {props.contact ? (
           <li>
             <NavLink to={props.c ? props.c : ""}>{props.contact}</NavLink>
           </li>
         ) : (
-            ""
-          )}
+          ""
+        )}
 
         {props.create ? (
           <li>
             <NavLink to={props.cr ? props.cr : ""}>{props.create}</NavLink>
           </li>
         ) : (
-            ""
-          )}
+          ""
+        )}
 
         {props.order ? (
           <li>
             <NavLink to={props.o ? props.o : ""}>{props.order}</NavLink>
           </li>
         ) : (
-            ""
-          )}
+          ""
+        )}
 
         {props.basket ? (
           <li>
             <NavLink to={props.b ? props.b : ""}>{props.basket}</NavLink>
           </li>
         ) : (
-            ""
-          )}
+          ""
+        )}
 
         {props.login ? (
           <li>
             <NavLink to={props.l ? props.l : ""}>{props.login}</NavLink>
           </li>
         ) : (
-            ""
-          )}
+          ""
+        )}
 
         {props.logout ? (
           <li>
-            <NavLink to={props.logout ? props.lo : ""} onClick={() => dispatch(logout())}>{props.logout}</NavLink>
+            <NavLink
+              to={props.logout ? props.lo : ""}
+              onClick={() => dispatch(logout())}
+            >
+              {props.logout}
+            </NavLink>
           </li>
         ) : (
-            ""
-          )}
-
+          ""
+        )}
       </ul>
     </header>
   );

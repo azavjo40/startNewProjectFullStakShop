@@ -1,36 +1,43 @@
 //@ts-check
-import { hideLoader, showAlert, showLoader } from "../generalAcsion"
+import { hideLoader, showAlert, showLoader } from "../generalAcsion";
 
-export function httpFetch(url, method = null, body = null, file = null, token = null, type = null) {
-    return async dispach => {
-        try {
-            dispach(showLoader())
+export function httpFetch(
+  url,
+  method = null,
+  body = null,
+  file = null,
+  token = null,
+  type = null
+) {
+  return async (dispach) => {
+    try {
+      dispach(showLoader());
+      const requestOptions = {
+        method: method,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      };
+      if (method === "POST" && body) {
+        requestOptions.body = JSON.stringify(body);
+      }
 
-            const requestOptions = { 
-                method: method,
-                headers: {
-                    'Content-Type': 'application/json',
-                    "Authorization": token
-                } 
-            }
-         
-            if (method === 'POST') {
-                requestOptions.body = JSON.stringify(body)
-            }
-            
-            if (file) {
-                requestOptions.body = file
-            }
+      if (file) {
+        requestOptions.body = file;
+        method = "POST";
+      }
 
-            const response = await fetch(url, requestOptions)
-            const data = await response.json()
+      const response = await fetch(url, requestOptions);
+      const data = await response.json();
 
-            if(type) { 
-                dispach({ type: type, payload: data })
-            }
-            dispach(showAlert(data.message))
-            dispach(hideLoader())
-
-        } catch (e) { dispach(showAlert('Something went wrong try again')) }
+      if (type) {
+        dispach({ type: type, payload: data });
+      }
+      dispach(showAlert(data.message));
+      dispach(hideLoader());
+    } catch (e) {
+      dispach(showAlert("Something went wrong try again"));
     }
+  };
 }
