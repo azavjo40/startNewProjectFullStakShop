@@ -10,6 +10,7 @@ function OrderCart({ address, order, id }) {
         dispatch(removeOrder(id))
         dispatch(getOrder())
     }
+    
     return (
         <div key={id} className="orderCart">
 

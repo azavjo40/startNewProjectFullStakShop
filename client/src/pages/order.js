@@ -9,15 +9,17 @@ function Order() {
         dispatch(getOrder())
     }, [dispatch])
     const order = useSelector(state => state.order.allOrder)
+
     return (
         <div className="contOrder">
 
             {order && order.map((item, i) => {
                 return (
-                    <>
-
-                        <OrderCart id={item._id} address={item.itemsAddress} order={item && item.itemsOrder.map(item => { return item })} />
-                    </>
+                    <OrderCart 
+                        id={item._id}
+                        address={item.itemsAddress} 
+                        order={item.itemsOrder} 
+                    />
                 )
             })}
 
