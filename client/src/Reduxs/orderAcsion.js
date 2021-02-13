@@ -5,16 +5,13 @@ import { ALL_ORDER } from "./types"
 
 export const autoOrderPost = (itemsOrder, itemsAddress) => {
     return dispach => {
-        const data = itemsOrder.map(item => {
-            const { name, p, cost, sos } = item
-            const items = {
-                name: name,
-                p: p,
-                cost: cost,
-                sos: sos
-            }
-            return items
-        })
+        const data = itemsOrder.map(item => ({
+            name: item.name,
+            p: item.p,
+            cost: item.cost,
+            sos: item.sos
+        }))
+        
         if (data[0]) {
             dispach(postOrder(data, itemsAddress))
         }
@@ -24,7 +21,7 @@ export const autoOrderPost = (itemsOrder, itemsAddress) => {
 export function postOrder(itemsOrder, itemsAddress) {
     return async dispach => {
             const items = { itemsOrder, itemsAddress }
-            dispach(httpFetch('/api/order', 'POST', items, null, null, null))
+            dispach(httpFetch('/api/order', 'POST', items))
             dispach(clearBasket())
     }
 }
