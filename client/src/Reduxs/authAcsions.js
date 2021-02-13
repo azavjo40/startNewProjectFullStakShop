@@ -1,23 +1,14 @@
 //@ts-check
 import { LOCAL_STORAGE } from "../constant/localstorage"
 import { hideLoader, showAlert, showLoader } from "./generalAcsion"
-import {
-  IS_AUTH_USER,
-  AUTH_TOKEN,
-} from "./types"
+import { IS_AUTH_USER, AUTH_TOKEN,} from "./types"
 
 export const authUser = (isAuthUser) => {
-  return {
-    type: IS_AUTH_USER,
-    payload: isAuthUser
-  }
+  return {type: IS_AUTH_USER,payload: isAuthUser }
 }
 
 export const authToken = (token) => {
-  return {
-    type: AUTH_TOKEN,
-    payload: token
-  }
+  return { type: AUTH_TOKEN,payload: token }
 }
 
 export function autoLogin() {
@@ -36,19 +27,18 @@ export function autoLogin() {
   };
 }
 
-export function authRegister(raw) {
-  return async (dispach) => {
+export function authRegister(form) {
+  return async dispach => {
     try {
       const requestOptions = {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(raw),
+        body: JSON.stringify(form),
       };
       dispach(showLoader());
       const date = await fetch("/api/auth/register", requestOptions)
       const response = await date.json()
       dispach(showAlert(response.message))
-
       if (response.token) {
         localStorage.setItem(
           LOCAL_STORAGE.STORAGE_NAME,

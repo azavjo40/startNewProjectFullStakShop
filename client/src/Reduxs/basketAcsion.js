@@ -7,18 +7,12 @@ export const clearBasket = () => {
 
 export function toBasket(item) {
     return dispach => {
-        dispach({
-            type: ADD_BASKET,
-            payload: item
-        })
+        dispach({ type: ADD_BASKET,payload: item})
     }
 }
 export function deleteItem(deleteBasket) {
     return dispach => {
-        dispach({
-            type: DELETE_BASKET,
-            payload: deleteBasket
-        })
+        dispach({type: DELETE_BASKET,payload: deleteBasket})
     }
 }
 
