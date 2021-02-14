@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { toBasket } from "../Reduxs/basketAcsion";
 import { allmenu, deleteMenu } from "../Reduxs/menuAcsion";
 import "../StyleCss/cart/cart.css";
 import ModelChoice from "./ModelChoice";
@@ -14,6 +15,15 @@ const MenuCart = ({ item, authUser }) => {
     setTimeout(() => {
       dispatch(allmenu());
     }, 1000);
+  };
+
+  const bayHandler = () => {
+    if (item.checked === "true") {
+      setShow(!show);
+    }
+    if (item.checked === "false") {
+      dispatch(toBasket(item));
+    }
   };
 
   const changeHndler = (e) => {
@@ -50,14 +60,7 @@ const MenuCart = ({ item, authUser }) => {
             Delete
           </button>
         ) : (
-          <button
-            onClick={() => {
-              setShow(!show);
-            }}
-          >
-            {" "}
-            +
-          </button>
+          <button onClick={bayHandler}> +</button>
         )}
       </div>
     </>

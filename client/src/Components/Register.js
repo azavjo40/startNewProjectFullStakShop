@@ -26,45 +26,43 @@ function Register() {
   };
 
   return (
-    <div className="contReg">
-      <form onSubmit={(e) => register(e)}>
-        {alert && <Alert text={alert} />}
-        <h1>Create An Account</h1>
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter Name"
-          required
-          value={form.name}
-          onChange={(event) => changehandler(event)}
-        />
-        <input
-          type="text"
-          name="phone"
-          placeholder="Enter Phone"
-          required
-          value={form.phone}
-          onChange={(event) => changehandler(event)}
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter Email"
-          required
-          value={form.email}
-          onChange={(event) => changehandler(event)}
-        />
-        <input
-          type="passeord"
-          name="password"
-          placeholder="Enter Password"
-          required
-          value={form.password}
-          onChange={(event) => changehandler(event)}
-        />
-        <button disabled={isloading}>Register</button>
-      </form>
-    </div>
+    <form className="authForm" onSubmit={(e) => register(e)}>
+      {alert && <Alert text={alert} />}
+      <h1>Create An Account</h1>
+      <input
+        type="text"
+        name="name"
+        placeholder="Enter Name"
+        required
+        value={form.name}
+        onChange={(event) => changehandler(event)}
+      />
+      <input
+        type="text"
+        name="phone"
+        placeholder="Enter Phone"
+        required
+        value={form.phone}
+        onChange={(event) => changehandler(event)}
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter Email"
+        required
+        value={form.email}
+        onChange={(event) => changehandler(event)}
+      />
+      <input
+        type="passeord"
+        name="password"
+        placeholder="Enter Password"
+        required
+        value={form.password}
+        onChange={(event) => changehandler(event)}
+      />
+      <button disabled={isloading}>Register</button>
+    </form>
   );
 }
 export default Register;

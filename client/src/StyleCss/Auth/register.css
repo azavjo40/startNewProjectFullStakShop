@@ -1,66 +1,53 @@
-.contReg {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  margin-top: 30px;
-  align-items: center;
-  justify-content: center;
-}
-.contReg form {
-  height: 70%;
-  width: 50%;
+.authForm {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  border: 0.05px solid #202124;
-  border-radius: 10px;
-  position: relative;
+  background-color: snow;
+  width: 100%;
 }
-.contReg form input {
-  width: 80%;
-  margin: 20px;
-  height: 30px;
+.authForm input {
+  width: 400px;
+  margin: 10px;
   border-radius: 5px;
-  border: 0.02px solid #202124;
+  transition: 0.5s;
+  border: 0.5px solid yellowgreen;
+  padding: 10px;
 }
-.contReg form input:focus {
-  outline: #1a73e8;
-  border: 0.08px solid #1a73e8;
+.authForm input:hover {
+  border: 0.5px solid yellow;
 }
-.contReg form button {
-  background-color: #1a73e8;
-  color: white;
-  width: 80px;
-  height: 35px;
-  border-radius: 5px;
-  font-weight: 500px;
-  font-size: 15px;
-  position: relative;
-  left: 30%;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-.contReg form button:focus {
+.authForm input:focus {
   outline: none;
 }
-.contReg form button:hover {
-  background-color: #1a93e8;
+.authForm button {
+  width: 400px;
+  border-radius: 5px;
+  transition: 0.5s;
+  border: 0.5px solid yellowgreen;
 }
-.contReg h1 {
-  color: #202124;
+.authForm button:hover {
+  border: 0.5px solid yellow;
+}
+.authForm button:focus {
+  outline: none;
+}
+
+h1 {
+  color: black;
   font-weight: 500px;
   font-size: 20px;
 }
 
-@media (max-width: 600px) {
-  .contReg {
-    height: 100%;
+@media (max-width: 425px) {
+  .authForm {
+    align-items: center;
   }
-  .contReg form {
-    width: 100%;
-    height: 50%;
-    border: none;
+  .authForm button {
+    width: 95%;
+  }
+  .authForm input {
+    width: 95%;
   }
 }
 

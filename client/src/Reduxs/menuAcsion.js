@@ -7,7 +7,7 @@ export function deleteMenu(form) {
   return async (dispach) => {
     const formPars = { imageSrc: form.imageSrc, _id: form._id };
     if (form) {
-      dispach(httpFetch("/api/delete", "POST", formPars, null, null, null));
+      dispach(httpFetch("/api/delete", "POST", formPars));
       dispach(showAlert("Menu Deleted"));
     }
   };
@@ -27,7 +27,6 @@ export function createAcsion(form, file) {
     formdata.append("p", form.p);
     formdata.append("checked", form.checked);
     formdata.append("file", file);
-    console.log(formdata);
-    dispach(httpFetch("/api/create", "POST", null, formdata, null, null));
+    dispach(httpFetch("/api/create", "POST", null, formdata));
   };
 }

@@ -43,10 +43,10 @@ function OrderCart({ address, order, id }) {
               return (
                 <ul key={id}>
                   <ol>ORDERS: {i}</ol>
-                  <ol>KEBAB: {item.name}</ol>
+                  <ol>NAME: {item.name}</ol>
                   <ol>PARAGRAPH: {item.p}</ol>
                   <ol>COST: = {item.cost} - PLN</ol>
-                  <ol>SOS: {item.sos}</ol>
+                  {item.sos && <ol>SOS: {item.sos}</ol>}
                 </ul>
               );
             })}

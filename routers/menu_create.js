@@ -5,7 +5,6 @@ const upload = require("../midlleware/upload");
 const fs = require("fs");
 const router = Router();
 router.post("/create", upload.single("file"), async (req, res) => {
-  console.log(req.body);
   try {
     const file = req.file;
     const { name, cost, p, checked } = req.body;

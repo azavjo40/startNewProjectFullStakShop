@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { autoOrderPost } from "../Reduxs/orderAcsion";
 import { useHistory } from "react-router-dom";
 import Alert from "../Components/Alert";
-import "../StyleCss/create/create.css";
+import "../StyleCss/modalAddress/modalAddress.css";
 import { showAlert } from "../Reduxs/generalAcsion";
 import { clearBasket } from "../Reduxs/basketAcsion";
+import close from "../images/close-window.png";
 const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
   const [formAddress, setFormAddress] = useState({
     nameClient: "",
@@ -44,52 +45,45 @@ const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
   };
 
   return (
-    <div className="createCont">
+    <form className="addressForm" onSubmit={(e) => bayHandler(e)}>
       {alert && <Alert text={alert} />}
-      <form className="creteForm" onSubmit={(e) => bayHandler(e)}>
-        <label
-          className="closeBtn"
-          onClick={() => setShowAddress(!showAddress)}
-        >
-          close
-        </label>
-        <input
-          required
-          type="text"
-          placeholder="Your Name"
-          name="nameClient"
-          value={formAddress.name}
-          onChange={(e) => chanheHandler(e)}
-        />
-        <input
-          required
-          type="phone"
-          placeholder="your Phone"
-          name="phone"
-          value={formAddress.email}
-          onChange={(e) => chanheHandler(e)}
-        />
-        <input
-          required
-          type="text"
-          placeholder="Your Address"
-          name="address"
-          value={formAddress.address}
-          onChange={(e) => chanheHandler(e)}
-        />
-        <input
-          required
-          type="text"
-          placeholder="Write Additionally"
-          name="message"
-          value={formAddress.message}
-          onChange={(e) => chanheHandler(e)}
-        />
-        <button style={{ margin: "15px" }} className="createBtn">
-          bay
-        </button>
-      </form>
-    </div>
+      <p className="closeBtn" onClick={() => setShowAddress(!showAddress)}>
+        <img src={close} alt={close} />
+      </p>
+      <input
+        required
+        type="text"
+        placeholder="Your Name"
+        name="nameClient"
+        value={formAddress.name}
+        onChange={(e) => chanheHandler(e)}
+      />
+      <input
+        required
+        type="phone"
+        placeholder="your Phone"
+        name="phone"
+        value={formAddress.email}
+        onChange={(e) => chanheHandler(e)}
+      />
+      <input
+        required
+        type="text"
+        placeholder="Your Address"
+        name="address"
+        value={formAddress.address}
+        onChange={(e) => chanheHandler(e)}
+      />
+      <input
+        required
+        type="text"
+        placeholder="Write Additionally"
+        name="message"
+        value={formAddress.message}
+        onChange={(e) => chanheHandler(e)}
+      />
+      <button>Bay {cost} - PLN</button>
+    </form>
   );
 };
 export default ModelAdress;

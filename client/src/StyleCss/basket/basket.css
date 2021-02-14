@@ -1,22 +1,24 @@
-.contMenu {
+.contBasket {
   width: 100%;
-  height: 600px;
   position: relative;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-top: 40px;
 }
-.contMenu .buyBtn {
-  background-color: #00e676;
-  border: none;
-  color: white;
-  border-radius: 3px;
-  width: 50%;
-  position: absolute;
-  top: 100%;
-  right: 25%;
+.contBasket .buyBtn {
+  width: 140px;
+  height: 30px;
+  border-radius: 5px;
+  transition: 0.5s;
+  border: 0.5px solid yellowgreen;
+  position: fixed;
+  bottom: 30px;
 }
-.contMenu .buyBtn:hover {
-  border: solid 0.5px yellow;
+.contBasket .buyBtn:hover {
+  border: 0.5px solid yellow;
 }
-.contMenu .buyBtn:focus {
+.contBasket .buyBtn:focus {
   outline: none;
 }
 

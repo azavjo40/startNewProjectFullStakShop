@@ -19,29 +19,27 @@ function Login() {
   };
 
   return (
-    <div className="contReg">
-      <form onSubmit={(e) => Login(e)}>
-        {alert && <Alert text={alert} />}
-        <h1>Login</h1>
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter Email"
-          required
-          value={form.email}
-          onChange={(event) => changehandler(event)}
-        />
-        <input
-          type="passeord"
-          name="password"
-          placeholder="Enter Password"
-          required
-          value={form.password}
-          onChange={(event) => changehandler(event)}
-        />
-        <button disabled={isloading}>Login</button>
-      </form>
-    </div>
+    <form className="authForm" onSubmit={(e) => Login(e)}>
+      {alert && <Alert text={alert} />}
+      <h1>Login</h1>
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter Email"
+        required
+        value={form.email}
+        onChange={(event) => changehandler(event)}
+      />
+      <input
+        type="passeord"
+        name="password"
+        placeholder="Enter Password"
+        required
+        value={form.password}
+        onChange={(event) => changehandler(event)}
+      />
+      <button disabled={isloading}>Login</button>
+    </form>
   );
 }
 export default Login;

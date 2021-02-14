@@ -14,18 +14,18 @@ export function httpFetch(
       dispach(showLoader());
       const requestOptions = {
         method: method,
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: token,
-        },
+        headers: { Authorization: token },
       };
       if (method === "POST" && body) {
         requestOptions.body = JSON.stringify(body);
+        requestOptions.headers = {
+          "Content-Type": "application/json",
+          Authorization: token,
+        };
       }
 
       if (file) {
         requestOptions.body = file;
-        method = "POST";
       }
 
       const response = await fetch(url, requestOptions);
