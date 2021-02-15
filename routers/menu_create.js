@@ -7,12 +7,12 @@ const router = Router();
 router.post("/create", upload.single("file"), async (req, res) => {
   try {
     const file = req.file;
-    const { name, cost, p, checked } = req.body;
+    const { name, cost, p, ifKebab } = req.body;
     if (!file) {
       res.status(400).json({ message: "Not files !!! select file !!!" });
     } else {
       const create = new MenuCraete({
-        checked,
+        ifKebab,
         name,
         cost,
         p,

@@ -1,55 +1,71 @@
-$color-1: #00e676;
 .createCont {
   width: 100%;
   padding-top: 38px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 17;
-  position: fixed;
   .creteForm {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
-    height: 100%;
-    background-color: aquamarine;
-    border-radius: 10px;
-    margin-top: 7%;
+    background-color: snow;
+    width: 100%;
     label {
       padding: 5px;
     }
+    .ifKebab {
+      color: red;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      label {
+        user-select: none;
+      }
+    }
+    .input,
+    .ifKebab {
+      width: 400px;
+      margin: 10px;
+      border-radius: 5px;
+      transition: 0.5s;
+      border: 0.5px solid yellowgreen;
+      padding: 10px;
+      &:hover {
+        border: 0.5px solid yellow;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
   }
   .createBtn {
-    background-color: $color-1;
-    border: none;
-    color: white;
-    border-radius: 3px;
+    width: 400px;
+    border-radius: 5px;
+    transition: 0.5s;
+    border: 0.5px solid yellowgreen;
     &:hover {
-      border: solid 0.5px yellow;
+      border: 0.5px solid yellow;
     }
     &:focus {
       outline: none;
     }
   }
 }
-.closeBtn {
-  color: red;
-  border-radius: 3px;
-  cursor: pointer;
-  &:hover {
-    border: solid 0.5px yellow;
-  }
-}
-.input {
-  margin-top: 20px;
-  border-radius: 5px;
-  width: 100%;
-  border: none;
-  &:focus {
-    outline: none;
-  }
-  &:hover {
-    border: solid 0.5px yellow;
+
+@media (max-width: 425px) {
+  .createCont {
+    display: flex;
+    justify-content: center;
+    .creteForm {
+      align-items: stretch;
+      .createBtn {
+        width: 95%;
+      }
+      .input,
+      .ifKebab {
+        width: 95%;
+      }
+    }
   }
 }

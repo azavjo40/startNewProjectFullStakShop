@@ -12,14 +12,14 @@ function Login() {
   const alert = useSelector((state) => state.general.alert);
   const dispach = useDispatch();
 
-  const Login = (e) => {
+  const loginHandler = (e) => {
     e.preventDefault();
     dispach(authLogin(form));
     setForm({ email: "", password: "" });
   };
 
   return (
-    <form className="authForm" onSubmit={(e) => Login(e)}>
+    <form className="authForm" onSubmit={(e) => loginHandler(e)}>
       {alert && <Alert text={alert} />}
       <h1>Login</h1>
       <input

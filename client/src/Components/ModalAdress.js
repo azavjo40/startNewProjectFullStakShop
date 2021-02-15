@@ -82,7 +82,7 @@ const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
         value={formAddress.message}
         onChange={(e) => chanheHandler(e)}
       />
-      <button>Bay {cost} - PLN</button>
+      <button>Buy {cost} - PLN</button>
     </form>
   );
 };

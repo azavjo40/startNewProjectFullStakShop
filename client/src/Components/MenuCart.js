@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toBasket } from "../Reduxs/basketAcsion";
+import { showAlert } from "../Reduxs/generalAcsion";
 import { allmenu, deleteMenu } from "../Reduxs/menuAcsion";
 import "../StyleCss/cart/cart.css";
+import Alert from "./Alert";
 import ModelChoice from "./ModelChoice";
 
 const MenuCart = ({ item, authUser }) => {
   const [show, setShow] = useState(false);
   const [form, setForm] = useState({ imageSrc: "", _id: "" });
   const [check, setCheck] = useState(false);
+  const alert = useSelector((state) => state.general.alert);
   const dispatch = useDispatch();
   const removeHandler = () => {
     dispatch(deleteMenu(form));
@@ -16,13 +19,13 @@ const MenuCart = ({ item, authUser }) => {
       dispatch(allmenu());
     }, 1000);
   };
-
-  const bayHandler = () => {
-    if (item.checked === "true") {
+  const addBasket = () => {
+    if (item.ifKebab === "true") {
       setShow(!show);
     }
-    if (item.checked === "false") {
+    if (item.ifKebab === "false") {
       dispatch(toBasket(item));
+      dispatch(showAlert("You Added To Basket !"));
     }
   };
 
@@ -38,6 +41,7 @@ const MenuCart = ({ item, authUser }) => {
   };
   return (
     <>
+      {alert && <Alert text={alert} />}
       {show && <ModelChoice show={show} item={item} setShow={setShow} />}
 
       <div className="contCart">
@@ -60,7 +64,7 @@ const MenuCart = ({ item, authUser }) => {
             Delete
           </button>
         ) : (
-          <button onClick={bayHandler}> +</button>
+          <button onClick={addBasket}> +</button>
         )}
       </div>
     </>

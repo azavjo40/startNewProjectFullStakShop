@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { toBasket } from "../Reduxs/basketAcsion";
+import close from "../images/close-window.png";
 import "../StyleCss/modalChice/modalChoice.css";
+import { showAlert } from "../Reduxs/generalAcsion";
 const ModelChoice = ({ setShow, show, item }) => {
   const [sos, setSos] = useState(undefined);
   const dispatch = useDispatch();
@@ -18,6 +20,7 @@ const ModelChoice = ({ setShow, show, item }) => {
     e.preventDefault();
     const items = { ...item, sos };
     dispatch(toBasket(items));
+    dispatch(showAlert("You Added To Basket !"));
     setTimeout(() => {
       setShow(!show);
     }, 1000);
@@ -25,9 +28,9 @@ const ModelChoice = ({ setShow, show, item }) => {
   return (
     <div className="modalCont">
       <form className="modalChoice" onSubmit={addBasket}>
-        <button onClick={() => setShow(!show)} className="closeModal">
-          Close
-        </button>
+        <p onClick={() => setShow(!show)} className="closeModal">
+          <img src={close} alt={close} />
+        </p>
         <label className="label">Choose a sauce !!!</label>
         <label className="label">
           <input

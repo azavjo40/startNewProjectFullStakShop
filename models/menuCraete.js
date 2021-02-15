@@ -4,7 +4,7 @@ const menuCreate = new Schema({
   name: { type: String, required: true },
   cost: { type: Number, required: true },
   p: { type: String, required: true },
-  checked: {},
+  ifKebab: {},
   imageSrc: { type: String, required: true },
   date: { type: Date, default: Date.now },
   userId: { type: String },

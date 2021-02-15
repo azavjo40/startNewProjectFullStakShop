@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getContacts, removeContact } from "../Reduxs/contactAcsion";
+import openMessage from "../images/open-message.png";
+import close from "../images/close-window.png";
 import "../StyleCss/contact/myContact.css";
 function MyContactCart({ item }) {
   const [showModal, setShowModal] = useState(false);
@@ -14,17 +16,21 @@ function MyContactCart({ item }) {
     }, 1000);
   };
   return (
-    <>
-      <span
+    <div className="myContactCart">
+      <div
         className="showModal"
         onClick={() => setShowModal(!showModal)}
         key={item.name}
       >
-        {item.name} - {new Date(item.date).toLocaleDateString()}
-      </span>
+        <img src={openMessage} alt={openMessage} />
+        <span>{item.name} </span>
+      </div>
       {showModal && (
         <div key={item._id} className="myContactModal">
-          <h3 onClick={() => setShowModal(!showModal)}>Close</h3>
+          <label onClick={() => setShowModal(!showModal)}>
+            <img src={close} alt={close} />
+          </label>
+          <p>Message: {item.message}</p>
           <span>Name: {item.name}</span>
           <span>Phone: {item.phone}</span>
           <span>Email: {item.email}</span>
@@ -33,15 +39,17 @@ function MyContactCart({ item }) {
             {new Date(item.date).toLocaleDateString()}
           </span>
           <form onSubmit={removeHandler}>
-            <span>
-              <input type="checkbox" required /> Confirm
+            <div className="confirm">
+              <p>
+                {" "}
+                <input type="checkbox" required /> Confirm
+              </p>
               <button className="btn_delete">Delete</button>
-            </span>
+            </div>
           </form>
-          <p>Message: {item.message}</p>
         </div>
       )}
-    </>
+    </div>
   );
 }
 export default MyContactCart;

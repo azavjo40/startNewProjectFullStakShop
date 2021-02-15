@@ -5,7 +5,7 @@ import { createAcsion } from "../Reduxs/menuAcsion";
 import { useHistory } from "react-router-dom";
 import Alert from "./Alert";
 const CreateCart = () => {
-  const [checked, setChecked] = useState(false);
+  const [ifKebab, setIfKebab] = useState(false);
   const alert = useSelector((state) => state.general.alert);
   const isLoading = useSelector((state) => state.general.isloading);
   const dispatch = useDispatch();
@@ -13,18 +13,18 @@ const CreateCart = () => {
   const history = useHistory();
   const [form, setForm] = useState({ name: "", p: "", cost: "" });
   const checkedHndler = (e) => {
-    setChecked(e.target.checked);
+    setIfKebab(e.target.checked);
   };
 
   const chanheHandler = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-  form.checked = checked;
+  form.ifKebab = ifKebab;
   const changeFile = (e) => {
     const fileField = e.target.files[0];
     setFile(fileField);
   };
-  const create = (e) => {
+  const createHandler = (e) => {
     e.preventDefault();
     dispatch(createAcsion(form, file));
     setForm({ name: "", p: "", cost: "" });
@@ -34,55 +34,54 @@ const CreateCart = () => {
     }, 1000);
   };
   return (
-    <div className="createCont">
-      <form className="creteForm" onSubmit={(e) => create(e)}>
-        {alert && <Alert text={alert} />}
-        <label>Create Menu</label>
-        <label>
-          It's Kebab ? <input type="checkbox" onChange={checkedHndler} />{" "}
-        </label>
-        <input
-          className="input"
-          required
-          type="text"
-          placeholder="Title"
-          name="name"
-          value={form.name}
-          onChange={(e) => chanheHandler(e)}
-        />
-        <input
-          className="input"
-          required
-          type="text"
-          placeholder="Paragraph"
-          name="p"
-          value={form.p}
-          onChange={(e) => chanheHandler(e)}
-        />
-        <input
-          className="input"
-          required
-          type="number"
-          placeholder="Cost"
-          name="cost"
-          value={form.cost}
-          onChange={(e) => chanheHandler(e)}
-        />
-        <input
-          className="input"
-          required
-          type="file"
-          onChange={(e) => changeFile(e)}
-        />
-        <button
-          disabled={isLoading}
-          style={{ margin: "15px" }}
-          className="createBtn"
-        >
-          Create
-        </button>
-      </form>
-    </div>
+    <form className="creteForm" onSubmit={(e) => createHandler(e)}>
+      {alert && <Alert text={alert} />}
+      <h3>Create Menu</h3>
+      <input
+        className="input"
+        required
+        type="text"
+        placeholder="Title"
+        name="name"
+        value={form.name}
+        onChange={(e) => chanheHandler(e)}
+      />
+      <input
+        className="input"
+        required
+        type="text"
+        placeholder="Paragraph"
+        name="p"
+        value={form.p}
+        onChange={(e) => chanheHandler(e)}
+      />
+      <input
+        className="input"
+        required
+        type="number"
+        placeholder="Cost"
+        name="cost"
+        value={form.cost}
+        onChange={(e) => chanheHandler(e)}
+      />
+      <div className="ifKebab">
+        <label for="chechMark">If It Is Kebab ? Click The ChechMark</label>
+        <input id="chechMark" type="checkbox" onChange={checkedHndler} />
+      </div>
+      <input
+        className="input"
+        required
+        type="file"
+        onChange={(e) => changeFile(e)}
+      />
+      <button
+        disabled={isLoading}
+        style={{ margin: "15px" }}
+        className="createBtn"
+      >
+        Create
+      </button>
+    </form>
   );
 };
 export default CreateCart;

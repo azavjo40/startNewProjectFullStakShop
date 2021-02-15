@@ -19,14 +19,14 @@ function Register() {
   const isloading = useSelector((state) => state.general.isloading);
   const dispach = useDispatch();
 
-  const register = (e) => {
+  const registerHandler = (e) => {
     e.preventDefault();
     dispach(authRegister(form));
     setForm({ name: "", phone: "", email: "", password: "" });
   };
 
   return (
-    <form className="authForm" onSubmit={(e) => register(e)}>
+    <form className="authForm" onSubmit={(e) => registerHandler(e)}>
       {alert && <Alert text={alert} />}
       <h1>Create An Account</h1>
       <input

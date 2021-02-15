@@ -30,21 +30,24 @@
   cursor: pointer;
 }
 .modalCont .closeModal {
-  cursor: pointer;
-  position: absolute;
-  border-radius: 5px;
-  color: red;
   border: none;
-  background-color: white;
+  padding: 0px;
+  margin: 0px;
+  position: absolute;
+  right: 4%;
   top: 10px;
-  right: 10px;
+  cursor: pointer;
 }
-.modalCont .closeModal:focus {
-  outline: none;
+.modalCont .closeModal img {
+  width: 30px;
+  height: 30px;
+  transition: 0.5s;
+  border-radius: 5px;
+  transition: 0.5s;
+  border: 0.5px solid yellowgreen;
 }
-.modalCont .closeModal:hover {
-  border: solid 0.5px;
-  transition: 1s;
+.modalCont .closeModal img:hover {
+  border: 0.5px solid yellow;
 }
 .modalCont .modalBtn {
   background-color: #00e676;

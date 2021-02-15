@@ -25,7 +25,7 @@ export function createAcsion(form, file) {
     formdata.append("name", form.name);
     formdata.append("cost", form.cost);
     formdata.append("p", form.p);
-    formdata.append("checked", form.checked);
+    formdata.append("ifKebab", form.ifKebab);
     formdata.append("file", file);
     dispach(httpFetch("/api/create", "POST", null, formdata));
   };

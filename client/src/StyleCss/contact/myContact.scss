@@ -1,71 +1,83 @@
-.myContactCart{
-padding-top: 40px;
-width: 100%;
-height: 100%;
-display: flex;
-flex-direction: column;
-position: relative;
-z-index: 1;
+.myContactCart {
+  padding-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  .showModal {
+    margin-left: 10px;
+    width: 300px;
+    border-radius: 5px;
+    transition: 0.5s;
+    border: 0.5px solid yellowgreen;
+    user-select: none;
+    cursor: pointer;
+    &:hover {
+      border: 0.5px solid yellow;
+    }
+    &:focus {
+      outline: none;
+    }
+    img {
+      width: 30px;
+      margin-right: 20px;
+    }
+  }
 }
-.showModal{
-margin-top: 3px;
-display: flex;
-align-items: center;
-justify-content: center;
-width: 100%;
-cursor: pointer;
-padding: 0px 0px 10px 20px;
-user-select: none;
-border: none;
-border-radius: 5px;
-height: 40px;
-z-index: 2;
-&:hover{
-border: solid 0.5px yellow;
+.myContactModal {
+  padding: 50px;
+  position: absolute;
+  width: 100%;
+  height: 600px;
+  background-color: snow;
+  z-index: 10;
+  top: 30px;
+  display: flex;
+  flex-direction: column;
+  .confirm {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    .btn_delete {
+      height: 100%;
+      border-radius: 5px;
+      transition: 0.5s;
+      border: 0.5px solid yellowgreen;
+      &:hover {
+        border: 0.5px solid yellow;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  label {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    width: 40px;
+    user-select: none;
+    cursor: pointer;
+    img {
+      width: 30px;
+      height: 30px;
+      transition: 0.5s;
+      border-radius: 5px;
+      transition: 0.5s;
+      border: 0.5px solid yellowgreen;
+      &:hover {
+        border: 0.5px solid yellow;
+      }
+    }
+  }
 }
-}
-.myContactModal{
-display: flex;
-flex-direction: column;
-flex-wrap: wrap;
-align-items: center;
-width: 100%;
-height: 1000px;
-position: fixed;
-top: 30px;
-background-color: #F0FFFF;
-z-index: 3;
-h3{
-position: absolute;
-z-index: 4;
-user-select: none;
-cursor: pointer;
-top: 10px;
-right:  20px;
-border-radius: 3px;
-border: .50px solid yellowgreen;
-font-size: 20px;
-&:hover{
-color: red;
-border: .50px solid yellow;
-}
-}
-p{
-padding: 20px;
-}
-span{
-padding-top: 10px;
-}
-}
-.btn_delete{
-border: none;
-border-radius: 3px;
-background-color: red;
-padding-left: 5px;
-&:hover{
-border: 1px solid yellow;
-}
-&:focus{
-outline: none;
-}
+@media (max-width: 425px) {
+  .myContactCart {
+    align-items: center;
+    .showModal {
+      width: 90%;
+      margin-left: 0px;
+    }
+  }
 }

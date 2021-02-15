@@ -12,21 +12,35 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(autoLogin());
-
-  }, [dispatch])
+  }, [dispatch]);
 
   return (
     <div className="cont">
       <Router>
         {isAuthUser ? (
-          <Navbar home="MyHome" contact="MyContacts" create="Create" order="Order"
-            logout="Logout" lo="/" cr="/create" h="/" o="/order" c="contact"
+          <Navbar
+            home="MyHome"
+            contact="MyContacts"
+            create="Create"
+            order="Order"
+            logout="Logout"
+            lo="/"
+            cr="/create"
+            h="/"
+            o="/order"
+            c="contact"
           />
         ) : (
-            <Navbar home="Home" contact="Contacts" login="Login" l="/auth"
-              basket="Basket" b="/basket" c="contact"
-            />
-          )}
+          <Navbar
+            home="Home"
+            contact="Contacts"
+            login="Login"
+            l="/auth"
+            basket="Basket"
+            b="/basket"
+            c="contact"
+          />
+        )}
         {routers}
       </Router>
     </div>
