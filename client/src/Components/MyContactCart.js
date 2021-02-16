@@ -4,7 +4,7 @@ import { getContacts, removeContact } from "../Reduxs/contactAcsion";
 import openMessage from "../images/open-message.png";
 import close from "../images/close-window.png";
 import "../StyleCss/contact/myContact.css";
-function MyContactCart({ item }) {
+function MyContactCart({ item, i }) {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const removeHandler = (e) => {
@@ -20,7 +20,7 @@ function MyContactCart({ item }) {
       <div
         className="showModal"
         onClick={() => setShowModal(!showModal)}
-        key={item.name}
+        key={item.i}
       >
         <img src={openMessage} alt={openMessage} />
         <span>{item.name} </span>

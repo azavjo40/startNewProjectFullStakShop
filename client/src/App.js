@@ -8,11 +8,12 @@ import { autoLogin } from "./Reduxs/authAcsions";
 
 function App() {
   const isAuthUser = useSelector((state) => state.auth.isAuthUser);
+  const authStorage = useSelector((state) => state.auth.storage);
   const routers = useRouters(isAuthUser);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(autoLogin());
-  }, [dispatch]);
+    dispatch(autoLogin(authStorage));
+  }, [dispatch, authStorage]);
 
   return (
     <div className="cont">

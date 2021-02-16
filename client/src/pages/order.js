@@ -10,14 +10,16 @@ function Order() {
   }, [dispatch]);
   const order = useSelector((state) => state.order.allOrder);
   return (
-    <div className="contOrder">
+    <div className="orderCont">
       {order &&
         order.map((item, i) => {
           return (
             <OrderCart
+              key={item._id}
               id={item._id}
               address={item.itemsAddress}
               order={item.itemsOrder}
+              i={i}
             />
           );
         })}

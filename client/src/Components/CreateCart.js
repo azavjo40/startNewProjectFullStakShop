@@ -65,7 +65,7 @@ const CreateCart = () => {
         onChange={(e) => chanheHandler(e)}
       />
       <div className="ifKebab">
-        <label for="chechMark">If It Is Kebab ? Click The ChechMark</label>
+        <label htmlFor="chechMark">If It Is Kebab ? Click The ChechMark</label>
         <input id="chechMark" type="checkbox" onChange={checkedHndler} />
       </div>
       <input

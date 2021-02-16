@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getOrder, removeOrder } from "../Reduxs/orderAcsion";
+import openOrder from "../images/open-order.png";
+import close from "../images/close-window.png";
 import "../StyleCss/order/order.css";
-function OrderCart({ address, order, id }) {
+function OrderCart({ address, order, id, i }) {
   const dispatch = useDispatch();
   const [openModal, setOpenModal] = useState(false);
   const deleteHandler = (e) => {
@@ -10,46 +12,45 @@ function OrderCart({ address, order, id }) {
     dispatch(removeOrder(id));
     dispatch(getOrder());
   };
-
   return (
-    <div key={id} className="orderCart">
-      <form onSubmit={deleteHandler} key={id}>
-        <h3 onClick={() => setOpenModal(!openModal)}>
-          {address.nameClient} OPEN
-        </h3>
-        <input required type="checkbox" />
-        <button type="submit">Delet</button>
-      </form>
-
+    <div key={i} className="orderCart">
+      <div className="showModal" onClick={() => setOpenModal(!openModal)}>
+        <img src={openOrder} alt={openOrder} />
+        <span> {address.nameClient} </span>
+      </div>
       {openModal && (
-        <div className="openModal">
-          <h1
-            onClick={() => {
-              setOpenModal(!openModal);
-            }}
-          >
-            Close
-          </h1>
-          <ul key={id}>
-            <ol>ADDRESS CLIENT</ol>
-            <ol>CLIENT: {address.nameClient}</ol>
-            <ol>ADDRESS: {address.address}</ol>
-            <ol>MESSAGE: {address.message}</ol>
-            <ol>TOTAL-COST: = {address.totalCost} - PLN</ol>
-          </ul>
-
+        <div className="orderModalCart">
+          <label onClick={() => setOpenModal(!openModal)}>
+            <img src={close} alt={close} />
+          </label>
+          <div>
+            <p>MESSAGE: {address.message}</p>
+            <p>
+              CLIENT: ({address.nameClient}) Phone: ({address.phone}) Ul: (
+              {address.address}) TotalCost: ({address.totalCost}) PLN
+            </p>
+          </div>
           {order &&
             order.map((item, i) => {
               return (
-                <ul key={id}>
-                  <ol>ORDERS: {i}</ol>
-                  <ol>NAME: {item.name}</ol>
-                  <ol>PARAGRAPH: {item.p}</ol>
-                  <ol>COST: = {item.cost} - PLN</ol>
-                  {item.sos && <ol>SOS: {item.sos}</ol>}
-                </ul>
+                <div key={i}>
+                  <p>
+                    ORDERS: ({i}) ({item.name})
+                    {item.sos && ` SOS:  (${item.sos}) `} COST: ({item.cost}) -
+                    PLN
+                  </p>
+                </div>
               );
             })}
+          <form onSubmit={deleteHandler}>
+            <div className="confirm">
+              <p>
+                {" "}
+                <input type="checkbox" required /> Confirm
+              </p>
+              <button className="btn_delete">Delete</button>
+            </div>
+          </form>
         </div>
       )}
     </div>

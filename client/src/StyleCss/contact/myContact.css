@@ -54,9 +54,9 @@
   outline: none;
 }
 .myContactModal label {
-  position: absolute;
-  top: 20px;
-  right: 30px;
+  position: fixed;
+  top: 40px;
+  right: 20px;
   width: 40px;
   user-select: none;
   cursor: pointer;
