@@ -30,8 +30,7 @@ export function httpFetch(
 
       const response = await fetch(url, requestOptions);
       const data = await response.json();
-
-      if (type) {
+      if (type && data) {
         dispach({ type: type, payload: data });
       }
       dispach(showAlert(data.message));
