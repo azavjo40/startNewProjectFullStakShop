@@ -2,19 +2,22 @@ const express = require("express");
 const config = require("config");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const bodyParser = require('body-parser')
+const bodyParser = require("body-parser");
+const passport = require("passport");
 const cors = require("cors");
 const app = express();
-app.use('/uploads', express.static('uploads'))
-app.use(express.json({ extended: true }))
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+app.use("/uploads", express.static("uploads"));
+app.use(express.json({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use("/api/auth", require("./routers/auth_user"));
-app.use("/api", require('./routers/menu_create'))
-app.use("/api", require('./routers/order'))
-app.use("/api", require('./routers/contact'))
+app.use("/api", require("./routers/menu_create"));
+app.use("/api", require("./routers/order"));
+app.use("/api", require("./routers/contact"));
 app.use(cors);
 app.use(morgan("dev"));
+app.use(passport.initialize());
+require("./midlleware/passport")(passport);
 const PORT = process.env.PORT || config.get("port") || 5000;
 async function start() {
   try {

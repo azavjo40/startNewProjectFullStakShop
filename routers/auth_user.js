@@ -1,9 +1,10 @@
 const { Router } = require("express");
-const User = require("../models/user");
+const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
-const token = require('../midlleware/token')
+const token = require("../midlleware/token");
 const router = Router();
+const passport = require("passport");
 
 router.post(
   "/register",
@@ -14,7 +15,7 @@ router.post(
     check("phone", "Please enter phone").isNumeric(),
   ],
   async (req, res) => {
-    console.log(req.body)
+    console.log(req.body);
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
@@ -31,7 +32,7 @@ router.post(
       const hashedPassword = await bcrypt.hash(password, 12);
       const user = new User({ name, phone, email, password: hashedPassword });
       await user.save();
-      const tokenUser = token(user.id)
+      const tokenUser = token(user.id);
       res.status(201).json({
         message: "User created",
         token: `Bearer ${tokenUser()}`,
@@ -40,7 +41,7 @@ router.post(
     } catch (e) {
       res
         .status(500)
-        .json({ message: "Something went wrong, please try again" })
+        .json({ message: "Something went wrong, please try again" });
     }
   }
 );
@@ -68,12 +69,30 @@ router.post(
           .status(400)
           .json({ message: "Invalid password, please try again" });
       }
-      const tokenUser = token(user.id)
+      const tokenUser = token(user.id);
       res.status(200).json({ token: `Bearer ${tokenUser()}`, userId: user.id });
     } catch (e) {
       res
         .status(500)
-        .json({ message: "Something went wrong, please try again" })
+        .json({ message: "Something went wrong, please try again" });
+    }
+  }
+);
+
+router.post(
+  "/refresh/token",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    console.log(req.body)
+    try {
+      const id = req.body.userId;
+      const tokenUser = await token(id);
+      console.log(tokenUser());
+      res.status(200).json({ token: `Bearer ${tokenUser()}`, userId: id });
+    } catch (e) {
+      res
+        .status(500)
+        .json({ message: "Something went wrong, please try again" });
     }
   }
 );

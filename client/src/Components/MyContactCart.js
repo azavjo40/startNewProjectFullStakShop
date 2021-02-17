@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getContacts, removeContact } from "../Reduxs/contactAcsion";
 import openMessage from "../images/open-message.png";
 import close from "../images/close-window.png";
+import Alert from "../Components/Alert";
 import "../StyleCss/contact/myContact.css";
 function MyContactCart({ item, i }) {
   const [showModal, setShowModal] = useState(false);
+  const alert = useSelector((state) => state.general.alert);
   const dispatch = useDispatch();
   const removeHandler = (e) => {
     e.preventDefault();
@@ -17,6 +19,7 @@ function MyContactCart({ item, i }) {
   };
   return (
     <div className="myContactCart">
+      {alert && <Alert text={alert} />}
       <div
         className="showModal"
         onClick={() => setShowModal(!showModal)}

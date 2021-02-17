@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getOrder, removeOrder } from "../Reduxs/orderAcsion";
 import openOrder from "../images/open-order.png";
 import close from "../images/close-window.png";
 import "../StyleCss/order/order.css";
+import Alert from "./Alert";
 function OrderCart({ address, order, id, i }) {
   const dispatch = useDispatch();
   const [openModal, setOpenModal] = useState(false);
+  const alert = useSelector((state) => state.general.alert);
   const deleteHandler = (e) => {
     e.preventDefault();
     dispatch(removeOrder(id));
@@ -15,6 +17,7 @@ function OrderCart({ address, order, id, i }) {
   return (
     <div key={i} className="orderCart">
       <div className="showModal" onClick={() => setOpenModal(!openModal)}>
+        {alert && <Alert text={alert} />}
         <img src={openOrder} alt={openOrder} />
         <span> {address.nameClient} </span>
       </div>

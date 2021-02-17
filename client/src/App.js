@@ -4,7 +4,7 @@ import useRouters from "./routers/Router";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
-import { autoLogin } from "./Reduxs/authAcsions";
+import { autoLogin, refreshToken } from "./Reduxs/authAcsions";
 
 function App() {
   const isAuthUser = useSelector((state) => state.auth.isAuthUser);
@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     dispatch(autoLogin(authStorage));
   }, [dispatch, authStorage]);
-
+  // if (isAuthUser) {dispatch(refreshToken());}
   return (
     <div className="cont">
       <Router>
