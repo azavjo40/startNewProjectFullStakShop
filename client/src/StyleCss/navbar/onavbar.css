@@ -7,7 +7,7 @@
 
 .imgIcon {
   width: 30px;
-  position: fixed;
+  position: absolute;
   z-index: 20;
   border-radius: 50px;
   left: 20px;
@@ -16,7 +16,7 @@
 .imgIcon:hover {
   background-color: #69f0ae;
   transition: 1s;
-  border: 1px solid;
+  border: 0.5px solid yellow;
 }
 
 .nav_links {
@@ -25,7 +25,7 @@
   height: 30px;
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding-left: 25px;
   display: flex;
   justify-content: space-around;
   align-items: center;

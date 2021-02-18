@@ -5,7 +5,7 @@ import openOrder from "../images/open-order.png";
 import close from "../images/close-window.png";
 import "../StyleCss/order/order.css";
 import Alert from "./Alert";
-function OrderCart({ address, order, id, i }) {
+function OrderCart({ address, order, id, i, date }) {
   const dispatch = useDispatch();
   const [openModal, setOpenModal] = useState(false);
   const alert = useSelector((state) => state.general.alert);
@@ -30,7 +30,12 @@ function OrderCart({ address, order, id, i }) {
             <p>MESSAGE: {address.message}</p>
             <p>
               CLIENT: ({address.nameClient}) Phone: ({address.phone}) Ul: (
-              {address.address}) TotalCost: ({address.totalCost}) PLN
+              {address.address}) TotalCost: ({address.totalCost}) (
+              {address.payment})
+            </p>
+            <p>
+              Date: {new Date(date).toLocaleTimeString()} -
+              {new Date(date).toLocaleDateString()}
             </p>
           </div>
           {order &&

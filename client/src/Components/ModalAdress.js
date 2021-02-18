@@ -13,6 +13,7 @@ const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
     phone: "",
     address: "",
     message: "",
+    payment: "",
   });
   const dispatch = useDispatch();
   const history = useHistory();
@@ -30,7 +31,13 @@ const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
     if (order[0]) {
       dispatch(autoOrderPost(order, formAddress));
       setTimeout(() => {
-        setFormAddress({ nameClient: "", phone: "", address: "", message: "" });
+        setFormAddress({
+          nameClient: "",
+          phone: "",
+          address: "",
+          message: "",
+          payment: "",
+        });
         setShowAddress(!showAddress);
         dispatch(clearBasket());
         history.push("/");
@@ -38,7 +45,13 @@ const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
     } else {
       dispatch(showAlert("First Add Menu  To Basket !!"));
       setTimeout(() => {
-        setFormAddress({ nameClient: "", phone: "", address: "", message: "" });
+        setFormAddress({
+          nameClient: "",
+          phone: "",
+          address: "",
+          message: "",
+          payment: "",
+        });
         history.push("/");
       }, 1000);
     }
@@ -51,6 +64,7 @@ const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
         <img src={close} alt={close} />
       </p>
       <input
+        className="inputAddress"
         required
         type="text"
         placeholder="Your Name"
@@ -59,6 +73,7 @@ const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
         onChange={(e) => chanheHandler(e)}
       />
       <input
+        className="inputAddress"
         required
         type="phone"
         placeholder="your Phone"
@@ -66,7 +81,31 @@ const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
         value={formAddress.email}
         onChange={(e) => chanheHandler(e)}
       />
+      <div className="choicePayment">
+        <label>
+          Card
+          <input
+            required
+            type="radio"
+            name="payment"
+            value="cart"
+            onChange={(e) => chanheHandler(e)}
+          />
+        </label>
+        <label> Payment By? </label>
+        <label>
+          <input
+            required
+            type="radio"
+            name="payment"
+            value="cash"
+            onChange={(e) => chanheHandler(e)}
+          />
+          Cash
+        </label>
+      </div>
       <input
+        className="inputAddress"
         required
         type="text"
         placeholder="Your Address"
@@ -75,6 +114,7 @@ const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
         onChange={(e) => chanheHandler(e)}
       />
       <input
+        className="inputAddress"
         required
         type="text"
         placeholder="Write Additionally"

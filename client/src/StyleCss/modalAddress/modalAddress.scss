@@ -8,8 +8,10 @@
   position: absolute;
   z-index: 10;
   background-color: snow;
-  input {
+  .inputAddress,
+  .choicePayment {
     width: 400px;
+    height: 40px;
     margin: 10px;
     border-radius: 5px;
     transition: 0.5s;
@@ -56,9 +58,20 @@
     }
   }
 }
+.choicePayment {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  label {
+    input {
+      margin: 10px;
+    }
+  }
+}
 @media (max-width: 425px) {
   .addressForm {
-    input {
+    .inputAddress,
+    .choicePayment {
       width: 95%;
     }
     button {

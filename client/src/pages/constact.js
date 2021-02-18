@@ -8,8 +8,8 @@ function Contact() {
   const authUser = useSelector((state) => state.auth.isAuthUser);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getContacts());
-  }, [dispatch]);
+    authUser && dispatch(getContacts());
+  }, [dispatch, authUser]);
   const items = useSelector((state) => state.contact.items);
   return (
     <div className={authUser ? "myContactCart" : "contContact"}>

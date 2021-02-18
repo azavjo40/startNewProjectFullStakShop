@@ -5,7 +5,7 @@ import close from "../images/close-window.png";
 import "../StyleCss/modalChice/modalChoice.css";
 import { showAlert } from "../Reduxs/generalAcsion";
 const ModelChoice = ({ setShow, show, item }) => {
-  const [sos, setSos] = useState(undefined);
+  const [sos, setSos] = useState();
   const dispatch = useDispatch();
 
   const changehandler = (e) => {

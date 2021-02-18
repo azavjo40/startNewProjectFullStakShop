@@ -1,5 +1,5 @@
 .myContactCart {
-  padding-top: 20px;
+  padding-top: 30px;
   width: 100%;
   display: flex;
   flex-direction: column-reverse;
@@ -54,9 +54,9 @@
   outline: none;
 }
 .myContactModal label {
-  position: fixed;
-  top: 40px;
-  right: 20px;
+  position: absolute;
+  top: 20px;
+  right: 30px;
   width: 40px;
   user-select: none;
   cursor: pointer;
@@ -76,6 +76,7 @@
 @media (max-width: 425px) {
   .myContactCart {
     align-items: center;
+    width: 100%;
   }
   .myContactCart .showModal {
     width: 90%;

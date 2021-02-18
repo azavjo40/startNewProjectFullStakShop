@@ -7,7 +7,7 @@ const storage = JSON.parse(localStorage.getItem(LOCAL_STORAGE.STORAGE_NAME));
 
 export const postContact = (form) => {
   return async (dispach) => {
-    dispach(httpFetch("/api/contact", "POST", form));
+    await dispach(httpFetch("/api/contact", "POST", form));
   };
 };
 

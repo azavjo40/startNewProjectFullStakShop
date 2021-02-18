@@ -9,18 +9,22 @@
   z-index: 10;
   background-color: snow;
 }
-.addressForm input {
+.addressForm .inputAddress,
+.addressForm .choicePayment {
   width: 400px;
+  height: 40px;
   margin: 10px;
   border-radius: 5px;
   transition: 0.5s;
   border: 0.5px solid yellowgreen;
   padding: 10px;
 }
-.addressForm input:hover {
+.addressForm .inputAddress:hover,
+.addressForm .choicePayment:hover {
   border: 0.5px solid yellow;
 }
-.addressForm input:focus {
+.addressForm .inputAddress:focus,
+.addressForm .choicePayment:focus {
   outline: none;
 }
 .addressForm button {
@@ -57,8 +61,18 @@
   border: 0.5px solid yellow;
 }
 
+.choicePayment {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.choicePayment label input {
+  margin: 10px;
+}
+
 @media (max-width: 425px) {
-  .addressForm input {
+  .addressForm .inputAddress,
+.addressForm .choicePayment {
     width: 95%;
   }
   .addressForm button {

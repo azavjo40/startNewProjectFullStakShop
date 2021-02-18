@@ -20,6 +20,7 @@ function Order() {
               address={item.itemsAddress}
               order={item.itemsOrder}
               i={i}
+              date={item.date}
             />
           );
         })}
