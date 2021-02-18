@@ -83,11 +83,9 @@ router.post(
   "/refresh/token",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    console.log(req.body)
     try {
       const id = req.body.userId;
       const tokenUser = await token(id);
-      console.log(tokenUser());
       res.status(200).json({ token: `Bearer ${tokenUser()}`, userId: id });
     } catch (e) {
       res

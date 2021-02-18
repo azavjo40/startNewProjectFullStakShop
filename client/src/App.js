@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     dispatch(autoLogin(authStorage));
   }, [dispatch, authStorage]);
-  // if (isAuthUser) {dispatch(refreshToken());}
+  isAuthUser && dispatch(refreshToken());
   return (
     <div className="cont">
       <Router>

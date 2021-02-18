@@ -72,29 +72,30 @@ export function authLogin(raw) {
   };
 }
 
+let setTime;
+export const refreshToken = () => {
+  return (dispach) => {
+    try {
+      setTime = setTimeout(() => {
+        dispach(
+          httpFetch(
+            "/api/auth/refresh/token",
+            "POST",
+            storage,
+            null,
+            storage.token,
+            AUTH_STORAGE
+          )
+        );
+      }, 200000);
+    } catch (e) {}
+  };
+};
+
 export const logout = () => {
   return (dispach) => {
     localStorage.removeItem(LOCAL_STORAGE.STORAGE_NAME);
     dispach(authUser(false));
-  };
-};
-
-export const refreshToken = () => {
-  return async (dispach) => {
-    try {
-      setInterval(() => {
-        console.log('hello')
-            dispach(
-        httpFetch(
-          "/api/auth/refresh/token",
-          "POST",
-          storage,
-          null,
-          storage.token,
-          AUTH_STORAGE
-        )
-      );
-        }, 3000);
-    } catch (e) {}
+    clearTimeout(setTime);
   };
 };
