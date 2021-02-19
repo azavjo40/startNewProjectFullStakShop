@@ -2,7 +2,7 @@
 import { LOCAL_STORAGE } from "../constant/localstorage";
 import { showAlert } from "./generalAcsion";
 import { httpFetch } from "./hooks/httpFetch";
-import { IS_AUTH_USER, AUTH_TOKEN, AUTH_STORAGE } from "./types";
+import { IS_AUTH_USER, AUTH_TOKEN, AUTH_STORAGE, AUTH_ADMIN } from "./types";
 
 const storage = JSON.parse(localStorage.getItem(LOCAL_STORAGE.STORAGE_NAME));
 
@@ -97,5 +97,11 @@ export const logout = () => {
     localStorage.removeItem(LOCAL_STORAGE.STORAGE_NAME);
     dispach(authUser(false));
     clearTimeout(setTime);
+  };
+};
+
+export const authAdmin = (form) => {
+  return (dispach) => {
+    dispach({ type: AUTH_ADMIN, payload: form });
   };
 };

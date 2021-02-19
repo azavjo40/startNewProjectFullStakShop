@@ -7,13 +7,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { showAlert } from "../Reduxs/generalAcsion";
 function Auth() {
   const alert = useSelector((state) => state.general.alert);
+  const authAdmin = useSelector((state) => state.auth.authAdmin);
   const dispatch = useDispatch();
   const [isLogin, setIsLogin] = useState(true);
-  const chechAdmin = (login, pass) => {
-    if (login === "pabek92@gmail.com" && pass === "123456") {
+  const chechAdmin = () => {
+    if (
+      authAdmin.email === "pabek92@gmail.com" &&
+      authAdmin.password === "123456"
+    ) {
       setIsLogin(!isLogin);
     } else {
       dispatch(showAlert("For Administration Only Login And Password !! "));
+      setIsLogin(true);
     }
   };
 
@@ -21,10 +26,7 @@ function Auth() {
     <div className="contAuth">
       {alert && <Alert text={alert} />}
       {isLogin ? <Login /> : <Register />}
-      <button
-        className="btnGoToRegister"
-        onClick={() => chechAdmin("pabek92@gmail.com", "123456")}
-      >
+      <button className="btnGoToRegister" onClick={() => chechAdmin()}>
         {isLogin ? "To Register" : "To Login"}
       </button>
     </div>

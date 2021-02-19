@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { authLogin } from "../Reduxs/authAcsions";
+import { authAdmin, authLogin } from "../Reduxs/authAcsions";
 import "../StyleCss/Auth/register.css";
 import Alert from "./Alert";
 function Login() {
@@ -17,6 +17,10 @@ function Login() {
     dispach(authLogin(form));
     setForm({ email: "", password: "" });
   };
+
+  useEffect(() => {
+    dispach(authAdmin(form));
+  }, [dispach, form]);
 
   return (
     <form className="authForm" onSubmit={(e) => loginHandler(e)}>
