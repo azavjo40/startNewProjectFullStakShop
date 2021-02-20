@@ -23,9 +23,6 @@ export function autoLogin(data) {
           JSON.stringify({ token: data.token, userId: data.userId })
         );
       }
-      const storage = JSON.parse(
-        localStorage.getItem(LOCAL_STORAGE.STORAGE_NAME)
-      );
       if (storage.token) {
         dispach(authUser(true));
         dispach(authToken(storage.token));
@@ -42,9 +39,6 @@ export function authRegister(form) {
       await dispach(
         httpFetch("/api/auth/register", "POST", form, null, null, AUTH_STORAGE)
       );
-      const storage = JSON.parse(
-        localStorage.getItem(LOCAL_STORAGE.STORAGE_NAME)
-      );
       if (storage.token) {
         dispach(authUser(true));
       } else {
@@ -59,9 +53,6 @@ export function authLogin(raw) {
     try {
       await dispach(
         httpFetch("/api/auth/login", "POST", raw, null, null, AUTH_STORAGE)
-      );
-      const storage = JSON.parse(
-        localStorage.getItem(LOCAL_STORAGE.STORAGE_NAME)
       );
       if (storage.token) {
         dispach(authUser(true));

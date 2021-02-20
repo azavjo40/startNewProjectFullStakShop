@@ -23,7 +23,7 @@ export const autoOrderPost = (itemsOrder, itemsAddress) => {
 export function postOrder(itemsOrder, itemsAddress) {
   return async (dispach) => {
     const items = { itemsOrder, itemsAddress };
-    await dispach(httpFetch("/api/order", "POST", items, null, storage.token));
+    await dispach(httpFetch("/api/order", "POST", items));
     dispach(clearBasket());
   };
 }
