@@ -115,7 +115,6 @@ const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
       />
       <input
         className="inputAddress"
-        required
         type="text"
         placeholder="Write Additionally"
         name="message"

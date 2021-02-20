@@ -39,10 +39,13 @@ export function authRegister(form) {
       await dispach(
         httpFetch("/api/auth/register", "POST", form, null, null, AUTH_STORAGE)
       );
+      const storage = await JSON.parse(
+        localStorage.getItem(LOCAL_STORAGE.STORAGE_NAME)
+      );
       if (storage.token) {
-        dispach(authUser(true));
+        await dispach(authUser(true));
       } else {
-        dispach(authUser(false));
+        await dispach(authUser(false));
       }
     } catch (e) {}
   };
@@ -54,10 +57,13 @@ export function authLogin(raw) {
       await dispach(
         httpFetch("/api/auth/login", "POST", raw, null, null, AUTH_STORAGE)
       );
+      const storage = await JSON.parse(
+        localStorage.getItem(LOCAL_STORAGE.STORAGE_NAME)
+      );
       if (storage.token) {
-        dispach(authUser(true));
+        await dispach(authUser(true));
       } else {
-        dispach(authUser(false));
+        await dispach(authUser(false));
       }
     } catch (e) {}
   };
@@ -78,7 +84,7 @@ export const refreshToken = () => {
             AUTH_STORAGE
           )
         );
-      }, 200000);
+      }, 100000);
     } catch (e) {}
   };
 };
