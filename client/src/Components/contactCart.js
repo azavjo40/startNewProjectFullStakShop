@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postContact } from "../Reduxs/contactAcsion";
-import Alert from "../Components/Alert";
+import { Alert } from "../Components";
 import "../StyleCss/contact/contact.css";
 import { showAlert } from "../Reduxs/generalAcsion";
 

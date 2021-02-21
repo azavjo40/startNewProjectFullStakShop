@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authRegister } from "../Reduxs/authAcsions";
+import { Alert } from "../Components";
 import "../StyleCss/Auth/register.css";
-import Alert from "./Alert";
 function Register() {
   const [form, setForm] = useState({
     name: "",

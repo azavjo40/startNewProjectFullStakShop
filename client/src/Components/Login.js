@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authAdmin, authLogin } from "../Reduxs/authAcsions";
+import { useHistory } from "react-router-dom";
 import "../StyleCss/Auth/register.css";
-import Alert from "./Alert";
+import { Alert } from "../Components";
 function Login() {
+  const history = useHistory();
   const [form, setForm] = useState({ email: "", password: "" });
   const changehandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
@@ -16,6 +18,7 @@ function Login() {
     e.preventDefault();
     dispach(authLogin(form));
     setForm({ email: "", password: "" });
+    setTimeout(() => history.push("/"), 1500);
   };
 
   useEffect(() => {

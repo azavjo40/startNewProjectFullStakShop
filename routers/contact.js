@@ -9,8 +9,9 @@ router.post("/contact", async (req, res) => {
     const { name, phone, email, message } = req.body;
     const contact = new Contact({ name, phone, email, message });
     await contact.save();
-    // const msg = `Name: ${name} Phone: ${phone}  Email: ${email} Message: ${message} `;
-    // nodeMailer(name, msg);
+    const msg = `Name: ${name} Phone: ${phone}  Email: ${email} Message: ${message} `;
+    const mailer = nodeMailer("pabek92@gmail.com", name, msg);
+    mailer();
     res.status(201).json({ message: "Thanks Soon Answers ))" });
   } catch (e) {
     res.status(500).jsom({ message: "Something went wrong, please try again" });

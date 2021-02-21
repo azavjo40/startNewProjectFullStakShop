@@ -18,6 +18,7 @@ app.use(cors);
 app.use(morgan("dev"));
 app.use(passport.initialize());
 require("./midlleware/passport")(passport);
+
 const PORT = process.env.PORT || config.get("port") || 5000;
 async function start() {
   try {

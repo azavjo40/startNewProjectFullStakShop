@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getContacts, removeContact } from "../Reduxs/contactAcsion";
 import openMessage from "../images/open-message.png";
 import close from "../images/close-window.png";
-import Alert from "../Components/Alert";
+import { Alert } from "../Components";
 import "../StyleCss/contact/myContact.css";
 function MyContactCart({ item, i }) {
   const [showModal, setShowModal] = useState(false);

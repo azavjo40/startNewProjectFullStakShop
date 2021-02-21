@@ -2,11 +2,12 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { autoOrderPost } from "../Reduxs/orderAcsion";
 import { useHistory } from "react-router-dom";
-import Alert from "../Components/Alert";
-import "../StyleCss/modalAddress/modalAddress.css";
+import { Alert } from "../Components";
 import { showAlert } from "../Reduxs/generalAcsion";
 import { clearBasket } from "../Reduxs/basketAcsion";
 import close from "../images/close-window.png";
+import "../StyleCss/modalAddress/modalAddress.css";
+
 const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
   const [formAddress, setFormAddress] = useState({
     nameClient: "",

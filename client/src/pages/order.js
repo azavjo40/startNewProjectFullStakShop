@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import OrderCart from "../Components/OrderCart";
+import { OrderCart } from "../Components";
 import { getOrder } from "../Reduxs/orderAcsion";
 import "../StyleCss/order/order.css";
 function Order() {

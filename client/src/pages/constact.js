@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
-import "../StyleCss/contact/contact.css";
+import { MyContactCart, ContactCart } from "../Components";
 import { useSelector, useDispatch } from "react-redux";
-import MyContactCart from "../Components/MyContactCart";
-import ContactCart from "../Components/contactCart";
 import { getContacts } from "../Reduxs/contactAcsion";
+import "../StyleCss/contact/contact.css";
 function Contact() {
   const authUser = useSelector((state) => state.auth.isAuthUser);
   const dispatch = useDispatch();

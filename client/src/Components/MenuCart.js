@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { toBasket } from "../Reduxs/basketAcsion";
 import { showAlert } from "../Reduxs/generalAcsion";
 import { allmenu, deleteMenu } from "../Reduxs/menuAcsion";
+import { Alert, ModelChoice } from "../Components";
 import "../StyleCss/cart/cart.css";
-import Alert from "./Alert";
-import ModelChoice from "./ModelChoice";
 
 const MenuCart = ({ item, authUser }) => {
   const [show, setShow] = useState(false);

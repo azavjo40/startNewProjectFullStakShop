@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { BasketCart, ModelAdress } from "../Components";
 import { useSelector } from "react-redux";
-import BasketCart from "../Components/BasketCart";
-import ModelAdress from "../Components/ModalAdress";
 import "../StyleCss/basket/basket.css";
 function Basket() {
   const items = useSelector((state) => state.basket.items);

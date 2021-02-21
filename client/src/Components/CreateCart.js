@@ -3,7 +3,7 @@ import "../StyleCss/create/create.css";
 import { useDispatch, useSelector } from "react-redux";
 import { createAcsion } from "../Reduxs/menuAcsion";
 import { useHistory } from "react-router-dom";
-import Alert from "./Alert";
+import { Alert } from "../Components";
 const CreateCart = () => {
   const [ifKebab, setIfKebab] = useState(false);
   const alert = useSelector((state) => state.general.alert);
