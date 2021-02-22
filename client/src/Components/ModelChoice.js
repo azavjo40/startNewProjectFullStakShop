@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { toBasket } from "../Reduxs/basketAcsion";
+import { toBasket } from "../reduxs/baskets/basketAcsions";
 import close from "../images/close-window.png";
-import { showAlert } from "../Reduxs/generalAcsion";
+import { showAlert } from "../reduxs/generals/generalAcsions";
 import "../StyleCss/modalChice/modalChoice.css";
 
 const ModelChoice = ({ setShow, show, item }) => {

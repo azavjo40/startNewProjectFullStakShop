@@ -1,7 +1,7 @@
 //@ts-check
-import { LOCAL_STORAGE } from "../constant/localstorage";
-import { showAlert } from "./generalAcsion";
-import { httpFetch } from "./hooks/httpFetch";
+import { LOCAL_STORAGE } from "../../constant/localstorage";
+import { showAlert } from "../generals/generalAcsions";
+import { httpFetch } from "../hooks/httpFetch";
 import { IS_AUTH_USER, AUTH_TOKEN, AUTH_STORAGE, AUTH_ADMIN } from "./types";
 
 const storage = JSON.parse(localStorage.getItem(LOCAL_STORAGE.STORAGE_NAME));

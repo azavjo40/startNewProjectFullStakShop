@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { MenuCart } from "../Components";
 import { Alert } from "../Components";
 import { useDispatch, useSelector } from "react-redux";
-import { allmenu } from "../Reduxs/menuAcsion";
+import { allmenu } from "../reduxs/menus/menuAcsions";
 function Menu() {
   const alert = useSelector((state) => state.general.alert);
   const authUser = useSelector((state) => state.auth.isAuthUser);

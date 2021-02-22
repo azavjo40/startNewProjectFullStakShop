@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { authRegister } from "../Reduxs/authAcsions";
+import { authRegister } from "../reduxs/auths/authAcsions";
+import { useHistory } from "react-router-dom";
 import { Alert } from "../Components";
 import "../StyleCss/Auth/register.css";
 function Register() {
+  const history = useHistory();
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -23,6 +25,7 @@ function Register() {
     e.preventDefault();
     dispach(authRegister(form));
     setForm({ name: "", phone: "", email: "", password: "" });
+    setTimeout(() => history.push("/"), 1500);
   };
 
   return (

@@ -1,0 +1,4 @@
+//@ts-check
+export const ADD_BASKET = "BASKET/ADD_BASKET";
+export const DELETE_BASKET = "BASKET/DELETE_BASKET";
+export const CLEAR_BASKET = "BASKET/CLEAR_BASKET";

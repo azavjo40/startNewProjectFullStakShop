@@ -3,7 +3,7 @@ import { Navbar } from "./Components";
 import { useRouters } from "./routers";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { autoLogin, refreshToken } from "./Reduxs/authAcsions";
+import { autoLogin, refreshToken } from "./reduxs/auths/authAcsions";
 import "./App.css";
 function App() {
   const isAuthUser = useSelector((state) => state.auth.isAuthUser);

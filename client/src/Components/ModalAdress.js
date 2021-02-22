@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { autoOrderPost } from "../Reduxs/orderAcsion";
+import { autoOrderPost } from "../reduxs/orders/orderAcsions";
 import { useHistory } from "react-router-dom";
 import { Alert } from "../Components";
-import { showAlert } from "../Reduxs/generalAcsion";
-import { clearBasket } from "../Reduxs/basketAcsion";
+import { showAlert } from "../reduxs/generals/generalAcsions";
+import { clearBasket } from "../reduxs/baskets/basketAcsions";
 import close from "../images/close-window.png";
 import "../StyleCss/modalAddress/modalAddress.css";
 

@@ -1,7 +1,7 @@
 //@ts-check
-import { httpFetch } from "./hooks/httpFetch";
+import { httpFetch } from "../hooks/httpFetch";
 import { ALL_CONTACT } from "./types";
-import { LOCAL_STORAGE } from "../constant/localstorage";
+import { LOCAL_STORAGE } from "../../constant/localstorage";
 
 const storage = JSON.parse(localStorage.getItem(LOCAL_STORAGE.STORAGE_NAME));
 

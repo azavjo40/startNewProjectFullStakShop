@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getContacts, removeContact } from "../Reduxs/contactAcsion";
+import { getContacts, removeContact } from "../reduxs/contacts/contactAcsions";
 import openMessage from "../images/open-message.png";
 import close from "../images/close-window.png";
 import { Alert } from "../Components";

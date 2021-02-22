@@ -1,8 +1,8 @@
 //@ts-check
-import { showAlert } from "./generalAcsion";
-import { httpFetch } from "./hooks/httpFetch";
+import { showAlert } from "../generals/generalAcsions";
+import { httpFetch } from "../hooks/httpFetch";
 import { MENU_GET_ALL } from "./types";
-import { LOCAL_STORAGE } from "../constant/localstorage";
+import { LOCAL_STORAGE } from "../../constant/localstorage";
 
 const storage = JSON.parse(localStorage.getItem(LOCAL_STORAGE.STORAGE_NAME));
 

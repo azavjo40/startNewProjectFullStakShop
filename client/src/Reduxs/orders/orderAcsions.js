@@ -1,8 +1,8 @@
 //@ts-check
-import { clearBasket } from "./basketAcsion";
-import { httpFetch } from "./hooks/httpFetch";
+import { clearBasket } from "../baskets/basketAcsions";
+import { httpFetch } from "../hooks/httpFetch";
 import { ALL_ORDER } from "./types";
-import { LOCAL_STORAGE } from "../constant/localstorage";
+import { LOCAL_STORAGE } from "../../constant/localstorage";
 
 const storage = JSON.parse(localStorage.getItem(LOCAL_STORAGE.STORAGE_NAME));
 

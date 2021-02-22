@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toBasket } from "../Reduxs/basketAcsion";
-import { showAlert } from "../Reduxs/generalAcsion";
-import { allmenu, deleteMenu } from "../Reduxs/menuAcsion";
+import { toBasket } from "../reduxs/baskets/basketAcsions";
+import { showAlert } from "../reduxs/generals/generalAcsions";
+import { allmenu, deleteMenu } from "../reduxs/menus/menuAcsions";
 import { Alert, ModelChoice } from "../Components";
 import "../StyleCss/cart/cart.css";
 

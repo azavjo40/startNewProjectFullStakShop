@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteItem } from "../Reduxs/basketAcsion";
+import { deleteItem } from "../reduxs/baskets/basketAcsions";
 import "../StyleCss/cart/cart.css";
 
 const BasketCart = ({ item }) => {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Alert } from "../Components";
 import { useDispatch, useSelector } from "react-redux";
-import { getOrder, removeOrder } from "../Reduxs/orderAcsion";
+import { getOrder, removeOrder } from "../reduxs/orders/orderAcsions";
 import openOrder from "../images/open-order.png";
 import close from "../images/close-window.png";
 import "../StyleCss/order/order.css";

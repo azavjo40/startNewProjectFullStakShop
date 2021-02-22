@@ -1,5 +1,5 @@
 //@ts-check
-import { hideLoader, showAlert, showLoader } from "../generalAcsion";
+import { hideLoader, showAlert, showLoader } from "../generals/generalAcsions";
 
 export function httpFetch(
   url,

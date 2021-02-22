@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { postContact } from "../Reduxs/contactAcsion";
+import { postContact } from "../reduxs/contacts/contactAcsions";
 import { Alert } from "../Components";
 import "../StyleCss/contact/contact.css";
-import { showAlert } from "../Reduxs/generalAcsion";
+import { showAlert } from "../reduxs/generals/generalAcsions";
 
 function ContactCart() {
   const dispatch = useDispatch();
