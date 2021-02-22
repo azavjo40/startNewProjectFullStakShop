@@ -4,7 +4,7 @@ import { getContacts, removeContact } from "../reduxs/contacts/contactAcsions";
 import openMessage from "../images/open-message.png";
 import close from "../images/close-window.png";
 import { Alert } from "../Components";
-import "../StyleCss/contact/myContact.css";
+import "../styleCss/contact/myContact.css";
 function MyContactCart({ item, i }) {
   const [showModal, setShowModal] = useState(false);
   const alert = useSelector((state) => state.general.alert);

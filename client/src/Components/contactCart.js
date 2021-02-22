@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postContact } from "../reduxs/contacts/contactAcsions";
 import { Alert } from "../Components";
-import "../StyleCss/contact/contact.css";
+import "../styleCss/contact/contact.css";
 import { showAlert } from "../reduxs/generals/generalAcsions";
 
 function ContactCart() {

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authAdmin, authLogin } from "../reduxs/auths/authAcsions";
 import { useHistory } from "react-router-dom";
-import "../StyleCss/Auth/register.css";
+import "../styleCss/Auth/register.css";
 import { Alert } from "../Components";
 function Login() {
   const history = useHistory();

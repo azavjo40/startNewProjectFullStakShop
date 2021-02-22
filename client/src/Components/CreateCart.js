@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../StyleCss/create/create.css";
+import "../styleCss/create/create.css";
 import { useDispatch, useSelector } from "react-redux";
 import { createAcsion } from "../reduxs/menus/menuAcsions";
 import { useHistory } from "react-router-dom";

@@ -6,7 +6,7 @@ import { Alert } from "../Components";
 import { showAlert } from "../reduxs/generals/generalAcsions";
 import { clearBasket } from "../reduxs/baskets/basketAcsions";
 import close from "../images/close-window.png";
-import "../StyleCss/modalAddress/modalAddress.css";
+import "../styleCss/modalAddress/modalAddress.css";
 
 const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
   const [formAddress, setFormAddress] = useState({

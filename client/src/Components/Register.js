@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { authRegister } from "../reduxs/auths/authAcsions";
 import { useHistory } from "react-router-dom";
 import { Alert } from "../Components";
-import "../StyleCss/Auth/register.css";
+import "../sytyleCss/Auth/register.css";
 function Register() {
   const history = useHistory();
   const [form, setForm] = useState({

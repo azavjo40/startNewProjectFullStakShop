@@ -4,7 +4,7 @@ import { toBasket } from "../reduxs/baskets/basketAcsions";
 import { showAlert } from "../reduxs/generals/generalAcsions";
 import { allmenu, deleteMenu } from "../reduxs/menus/menuAcsions";
 import { Alert, ModelChoice } from "../Components";
-import "../StyleCss/cart/cart.css";
+import "../styleCss/cart/cart.css";
 
 const MenuCart = ({ item, authUser }) => {
   const [show, setShow] = useState(false);
