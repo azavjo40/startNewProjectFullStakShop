@@ -1,5 +1,5 @@
 import Menu from "./Menu";
-import Auth from "./Auth";
+import Auth from "./auth";
 import Create from "./create";
 import Basket from "./basket";
 import Order from "./order";
