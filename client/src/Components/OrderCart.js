@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Alert } from "../Components";
+import { Alert, Accordion } from "../Components";
 import { useDispatch, useSelector } from "react-redux";
 import { getOrder, removeOrder } from "../redux/orders/orderAcsions";
 import openOrder from "../images/open-order.png";
 import close from "../images/close-window.png";
 import "../styles/order/order.css";
+
 function OrderCart({ address, order, id, i, date }) {
   const dispatch = useDispatch();
   const [openModal, setOpenModal] = useState(false);
@@ -21,33 +22,32 @@ function OrderCart({ address, order, id, i, date }) {
         <img src={openOrder} alt={openOrder} />
         <span> {address.nameClient} </span>
       </div>
+
       {openModal && (
         <div className="orderModalCart">
           <label onClick={() => setOpenModal(!openModal)}>
             <img src={close} alt={close} />
           </label>
-          <div>
-            <p>MESSAGE: {address.message}</p>
-            <p>
-              CLIENT: ({address.nameClient}) Phone: ({address.phone}) Ul: (
-              {address.address}) TotalCost: ({address.totalCost}) (
-              {address.payment})
-            </p>
-            <p>
-              Date: {new Date(date).toLocaleTimeString()} -
-              {new Date(date).toLocaleDateString()}
-            </p>
-          </div>
+          <Accordion
+            button="Data-Client"
+            name={address.nameClient}
+            phone={address.phone}
+            address={address.address}
+            totalCost={address.totalCost}
+            payment={address.payment}
+            date={date}
+            message={address.message}
+          />
           {order &&
             order.map((item, i) => {
               return (
-                <div key={i}>
-                  <p>
-                    ORDERS: ({i}) ({item.name})
-                    {item.sos && ` SOS:  (${item.sos}) `} COST: ({item.cost}) -
-                    PLN
-                  </p>
-                </div>
+                <Accordion
+                  key={i}
+                  button={`Order ${i}`}
+                  name={item.name}
+                  sos={item.sos}
+                  cost={item.cost}
+                />
               );
             })}
           <form onSubmit={deleteHandler}>
