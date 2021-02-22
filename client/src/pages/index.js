@@ -1,4 +1,4 @@
-import Menu from "./Menu";
+import Menu from "./menu";
 import Auth from "./auth";
 import Create from "./create";
 import Basket from "./basket";

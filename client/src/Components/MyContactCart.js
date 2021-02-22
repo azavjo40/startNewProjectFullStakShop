@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getContacts, removeContact } from "../reduxs/contacts/contactAcsions";
+import { getContacts, removeContact } from "../redux/contacts/contactAcsions";
 import openMessage from "../images/open-message.png";
 import close from "../images/close-window.png";
 import { Alert } from "../Components";
-import "../styleCss/contact/myContact.css";
+import "../styles/contact/myContact.css";
 function MyContactCart({ item, i }) {
   const [showModal, setShowModal] = useState(false);
   const alert = useSelector((state) => state.general.alert);

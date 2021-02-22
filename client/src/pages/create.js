@@ -1,6 +1,6 @@
 import React from "react";
 import { CreateCart } from "../Components";
-import "../styleCss/create/create.css";
+import "../styles/create/create.css";
 const Create = () => {
   return (
     <div className="createCont">

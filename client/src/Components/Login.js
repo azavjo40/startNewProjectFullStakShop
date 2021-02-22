@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { authAdmin, authLogin } from "../reduxs/auths/authAcsions";
+import { authAdmin, authLogin } from "../redux/auths/authAcsions";
 import { useHistory } from "react-router-dom";
-import "../styleCss/Auth/register.css";
+import "../styles/auth/register.css";
 import { Alert } from "../Components";
 function Login() {
   const history = useHistory();

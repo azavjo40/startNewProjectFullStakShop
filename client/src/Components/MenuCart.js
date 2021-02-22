@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toBasket } from "../reduxs/baskets/basketAcsions";
-import { showAlert } from "../reduxs/generals/generalAcsions";
-import { allmenu, deleteMenu } from "../reduxs/menus/menuAcsions";
+import { toBasket } from "../redux/baskets/basketAcsions";
+import { showAlert } from "../redux/generals/generalAcsions";
+import { allmenu, deleteMenu } from "../redux/menus/menuAcsions";
 import { Alert, ModelChoice } from "../Components";
-import "../styleCss/cart/cart.css";
+import "../styles/cart/cart.css";
 
 const MenuCart = ({ item, authUser }) => {
   const [show, setShow] = useState(false);

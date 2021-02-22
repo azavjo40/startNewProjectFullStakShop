@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { autoOrderPost } from "../reduxs/orders/orderAcsions";
+import { autoOrderPost } from "../redux/orders/orderAcsions";
 import { useHistory } from "react-router-dom";
 import { Alert } from "../Components";
-import { showAlert } from "../reduxs/generals/generalAcsions";
-import { clearBasket } from "../reduxs/baskets/basketAcsions";
+import { showAlert } from "../redux/generals/generalAcsions";
+import { clearBasket } from "../redux/baskets/basketAcsions";
 import close from "../images/close-window.png";
-import "../styleCss/modalAddress/modalAddress.css";
+import "../styles/modalAddress/modalAddress.css";
 
 const ModelAdress = ({ setShowAddress, showAddress, cost }) => {
   const [formAddress, setFormAddress] = useState({

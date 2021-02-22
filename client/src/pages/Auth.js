@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Login, Register, Alert } from "../Components";
 import { useDispatch, useSelector } from "react-redux";
-import { showAlert } from "../reduxs/generals/generalAcsions";
-import "../styleCss/auth/auth.css";
+import { showAlert } from "../redux/generals/generalAcsions";
+import "../styles/auth/auth.css";
 function Auth() {
   const alert = useSelector((state) => state.general.alert);
   const authAdmin = useSelector((state) => state.auth.authAdmin);

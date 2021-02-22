@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Alert } from "../Components";
 import { useDispatch, useSelector } from "react-redux";
-import { getOrder, removeOrder } from "../reduxs/orders/orderAcsions";
+import { getOrder, removeOrder } from "../redux/orders/orderAcsions";
 import openOrder from "../images/open-order.png";
 import close from "../images/close-window.png";
-import "../styleCss/order/order.css";
+import "../styles/order/order.css";
 function OrderCart({ address, order, id, i, date }) {
   const dispatch = useDispatch();
   const [openModal, setOpenModal] = useState(false);

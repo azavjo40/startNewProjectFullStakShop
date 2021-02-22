@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "../styleCss/create/create.css";
+import "../styles/create/create.css";
 import { useDispatch, useSelector } from "react-redux";
-import { createAcsion } from "../reduxs/menus/menuAcsions";
+import { createAcsion } from "../redux/menus/menuAcsions";
 import { useHistory } from "react-router-dom";
 import { Alert } from "../Components";
 const CreateCart = () => {
