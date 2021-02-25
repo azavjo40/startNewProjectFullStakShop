@@ -12,6 +12,7 @@ export const postContact = (form) => {
 };
 
 export const getContacts = () => {
+  const storage = JSON.parse(localStorage.getItem(LOCAL_STORAGE.STORAGE_NAME));
   return async (dispach) => {
     await dispach(
       httpFetch(

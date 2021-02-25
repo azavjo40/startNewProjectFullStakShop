@@ -28,6 +28,7 @@ export function postOrder(itemsOrder, itemsAddress) {
   };
 }
 export function getOrder() {
+  const storage = JSON.parse(localStorage.getItem(LOCAL_STORAGE.STORAGE_NAME));
   return async (dispach) => {
     await dispach(
       httpFetch("/api/allorder", "GET", null, null, storage.token, ALL_ORDER)
