@@ -1,6 +1,6 @@
 .createCont {
   width: 100%;
-  padding-top: 38px;
+  padding-top: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,6 +12,9 @@
   align-items: center;
   background-color: snow;
   width: 100%;
+}
+.createCont .creteForm h3 {
+  text-align: center;
 }
 .createCont .creteForm label {
   padding: 5px;

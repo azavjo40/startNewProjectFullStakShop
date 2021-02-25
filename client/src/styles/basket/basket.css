@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  padding-top: 40px;
+  padding-top: 60px;
 }
 .contBasket .buyBtn {
   width: 140px;

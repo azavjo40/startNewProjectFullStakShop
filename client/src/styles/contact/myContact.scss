@@ -1,6 +1,9 @@
+.myContact {
+  padding-top: 60px;
+}
 .myContactCart {
-  padding-top: 30px;
   width: 100%;
+  padding-top: 10px;
   display: flex;
   flex-direction: column-reverse;
   .showModal {
@@ -24,7 +27,8 @@
   }
 }
 .myContactModal {
-  padding: 50px;
+  margin-top: 30px;
+  padding: 60px;
   position: absolute;
   width: 100%;
   height: 600px;

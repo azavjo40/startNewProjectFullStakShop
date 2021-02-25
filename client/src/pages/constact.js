@@ -11,7 +11,7 @@ function Contact() {
   }, [dispatch, authUser]);
   const items = useSelector((state) => state.contact.items);
   return (
-    <div className={authUser ? "myContactCart" : "contContact"}>
+    <div className={authUser ? "myContact" : "contContact"}>
       {authUser ? (
         items.map((item, i) => (
           <MyContactCart key={item._id} item={item} i={i} />

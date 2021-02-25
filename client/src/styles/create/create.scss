@@ -1,6 +1,6 @@
 .createCont {
   width: 100%;
-  padding-top: 38px;
+  padding-top: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,6 +11,9 @@
     align-items: center;
     background-color: snow;
     width: 100%;
+    h3 {
+      text-align: center;
+    }
     label {
       padding: 5px;
     }

@@ -7,6 +7,15 @@ import "../styles/navbar/onavbar.css";
 const Navbar = (props) => {
   const [isLoadin, setIsLoading] = useState(false);
   const dispatch = useDispatch();
+
+  function handleResize() {
+    //  window.innerHeight
+    if (window.innerWidth > 600) {
+      setIsLoading(false);
+    }
+  }
+
+  window.addEventListener("resize", handleResize);
   return (
     <header className="header">
       <img
